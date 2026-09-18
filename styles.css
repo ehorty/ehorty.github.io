@@ -461,6 +461,16 @@ footer p { font-size: .8rem; color: var(--muted); }
 .reveal.visible { opacity: 1; transform: none; }
 
 /* ===== Music dock ===== */
+#yt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
 #dock {
   position: fixed;
   left: 1.2rem;

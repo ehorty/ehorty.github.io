@@ -177,11 +177,12 @@
   const initYT = () => {
     yt = new YT.Player('yt', {
       videoId: LOFI_ID,
-      playerVars: { autoplay: 0, controls: 0, playsinline: 1, rel: 0, modestbranding: 1, origin: window.location.origin },
+      playerVars: { autoplay: 1, controls: 0, playsinline: 1, rel: 0, modestbranding: 1, origin: window.location.origin },
       events: {
         onReady: () => {
           ytReady = true;
           yt.setVolume(Number(volume.value));
+          try { yt.playVideo(); } catch (e) {}
           start();
         },
         onStateChange: (e) => {
@@ -195,6 +196,15 @@
         },
       },
     });
+  };
+
+  let soundOn = false;
+  const unmute = () => {
+    if (!soundOn && ytReady) {
+      yt.unMute();
+      yt.setVolume(Number(volume.value));
+      soundOn = true;
+    }
   };
 
   window.onYouTubeIframeAPIReady = initYT;
@@ -212,6 +222,7 @@
 
   playBtn.addEventListener('click', () => {
     if (!ytReady) return;
+    unmute();
     const s = yt.getPlayerState();
     if (s === YT.PlayerState.PLAYING) yt.pauseVideo();
     else yt.playVideo();
@@ -223,8 +234,9 @@
   });
 
   const start = () => {
-    if (ytReady && yt.getPlayerState() !== YT.PlayerState.PLAYING) {
-      yt.playVideo();
+    if (ytReady) {
+      unmute();
+      if (yt.getPlayerState() !== YT.PlayerState.PLAYING) yt.playVideo();
     }
   };
 
