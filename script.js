@@ -40,7 +40,7 @@
       'link.big': 'Got an idea?<br>Let\u2019s keep it <span class="accent">SWAG.</span>',
       'footer.copy': '\u00A9 2026 ehorty — swag edition, no refunds',
       'footer.hint': 'psst — type',
-      'dock.title': 'lofi_radio · live',
+      'dock.title': 'lofi_girl · radio',
       'dock.live': 'LIVE',
     },
     ru: {
@@ -76,7 +76,7 @@
       'link.big': 'Идея есть?<br>Сделаем это <span class="accent">SWAG.</span>',
       'footer.copy': '\u00A9 2026 ehorty — свэг-издание, без возвратов',
       'footer.hint': 'псс — введи',
-      'dock.title': 'lofi-радио · в эфире',
+      'dock.title': 'lofi-девочка · радио',
       'dock.live': 'ЭФИР',
     },
   };
@@ -166,42 +166,70 @@
   const dock = $('dock');
   const playBtn = $('dockPlay');
   const volume = $('dockVol');
-  const audio = $('audioTrack');
 
-  const maybe = (v) => (v && isFinite(v) && v >= 0 ? v : 0);
-  volume.value = maybe(parseFloat(ls.getItem('vol')) || 0.05);
-  audio.volume = volume.value;
+  const maybe = (v) => (v && isFinite(v) && v >= 0 ? v : 5);
+  volume.value = maybe(parseFloat(ls.getItem('vol')) || 5);
 
-  audio.addEventListener('canplay', () => dock.classList.add('buffered'));
-  audio.addEventListener('playing', () => {
-    dock.classList.add('playing');
-    playBtn.setAttribute('aria-label', 'pause');
-  });
-  audio.addEventListener('pause', () => {
-    dock.classList.remove('playing');
-    playBtn.setAttribute('aria-label', 'play');
-  });
-  audio.addEventListener('waiting', () => dock.classList.add('buffering'));
+  const LOFI_ID = 'jfKfPfyJRdk';
+  let yt = null;
+  let ytReady = false;
+
+  const initYT = () => {
+    yt = new YT.Player('yt', {
+      videoId: LOFI_ID,
+      playerVars: { autoplay: 0, controls: 0, playsinline: 1, rel: 0, modestbranding: 1, origin: window.location.origin },
+      events: {
+        onReady: () => {
+          ytReady = true;
+          yt.setVolume(Number(volume.value));
+          start();
+        },
+        onStateChange: (e) => {
+          if (e.data === YT.PlayerState.PLAYING) {
+            dock.classList.add('playing');
+            playBtn.setAttribute('aria-label', 'pause');
+          } else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) {
+            dock.classList.remove('playing');
+            playBtn.setAttribute('aria-label', 'play');
+          }
+        },
+      },
+    });
+  };
+
+  window.onYouTubeIframeAPIReady = initYT;
+
+  const loadYT = () => {
+    if (window.YT && window.YT.Player) {
+      initYT();
+      return;
+    }
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    tag.async = true;
+    document.head.appendChild(tag);
+  };
 
   playBtn.addEventListener('click', () => {
-    if (!audio.src) audio.src = 'https://streams.fluxfm.de/Chillhop/mp3-320/';
-    if (audio.paused) {
-      audio.play().catch((err) => console.error('[dock]', err));
-    } else {
-      audio.pause();
-    }
+    if (!ytReady) return;
+    const s = yt.getPlayerState();
+    if (s === YT.PlayerState.PLAYING) yt.pauseVideo();
+    else yt.playVideo();
   });
 
   volume.addEventListener('input', () => {
-    audio.volume = Number(volume.value);
+    if (ytReady) yt.setVolume(Number(volume.value));
     ls.setItem('vol', String(volume.value));
   });
 
-  audio.src = 'https://streams.fluxfm.de/Chillhop/mp3-320/';
   const start = () => {
-    if (audio.paused) audio.play().catch(() => {});
+    if (ytReady && yt.getPlayerState() !== YT.PlayerState.PLAYING) {
+      yt.playVideo();
+    }
   };
+
   dock.classList.remove('hidden');
+  loadYT();
   start();
   const startOnce = () => {
     dock.classList.remove('hidden');
