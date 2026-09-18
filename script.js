@@ -184,7 +184,7 @@
   audio.addEventListener('waiting', () => dock.classList.add('buffering'));
 
   playBtn.addEventListener('click', () => {
-    if (!audio.src) audio.src = 'https://lofi.stream.lfmradio.app/lofi';
+    if (!audio.src) audio.src = 'https://streams.fluxfm.de/Chillhop/mp3-320/';
     if (audio.paused) {
       audio.play().catch((err) => console.error('[dock]', err));
     } else {
@@ -197,5 +197,16 @@
     ls.setItem('vol', String(volume.value));
   });
 
-  window.addEventListener('pointerdown', () => dock.classList.remove('hidden'), { once: true });
+  audio.src = 'https://streams.fluxfm.de/Chillhop/mp3-320/';
+  const start = () => {
+    if (audio.paused) audio.play().catch(() => {});
+  };
+  dock.classList.remove('hidden');
+  start();
+  const startOnce = () => {
+    dock.classList.remove('hidden');
+    start();
+  };
+  window.addEventListener('pointerdown', startOnce, { once: true });
+  window.addEventListener('keydown', startOnce, { once: true });
 })();
