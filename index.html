@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ehorty — Python Developer. Backend, bots, automation, tools.">
+  <title>Ehorty — Python Developer</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ehorty.dev">
+  <meta property="og:title" content="Ehorty — Python Developer">
+  <meta property="og:description" content="Backend, bots & automation in Python. Always cooking something.">
+  <meta property="og:url" content="https://ehorty.github.io">
+  <meta property="og:image" content="https://github.com/ehorty.png">
+  <meta property="og:image:width" content="460">
+  <meta property="og:image:height" content="460">
+  <meta property="og:image:alt" content="Ehorty avatar">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ehorty — Python Developer">
+  <meta name="twitter:description" content="Backend, bots & automation in Python. Always cooking something.">
+  <meta name="twitter:image" content="https://github.com/ehorty.png">
+
+  <meta name="theme-color" content="#0d1117">
+
+  <link rel="icon" type="image/png" href="https://github.com/ehorty.png">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+<div id="preloader" aria-hidden="true">
+  <div class="pre-inner">
+    <p class="pre-logo">ehorty<span>.dev</span><span class="pre-cursor"></span></p>
+    <div class="pre-bar"><span></span></div>
+    <p class="pre-hint">loading<span class="pre-dots"></span></p>
+  </div>
+</div>
+
+<div id="gate" aria-hidden="true">
+  <div class="gate-inner">
+    <p class="gate-title" data-i18n="gate.title">Press anywhere to continue</p>
+    <p class="gate-note" data-i18n="gate.note">This site has music. Use the player in the bottom-left corner to lower the volume.</p>
+  </div>
+</div>
+
+<header class="nav">
+  <a class="logo" href="#top"><i data-lucide="terminal" class="ic"></i>ehorty<span>.dev</span></a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#about"><i data-lucide="user" class="ic"></i><span data-i18n="nav.about">about</span></a>
+    <a href="#now"><i data-lucide="zap" class="ic"></i><span data-i18n="nav.now">now</span></a>
+    <a href="#projects"><i data-lucide="folder-git-2" class="ic"></i><span data-i18n="nav.projects">projects</span></a>
+    <a href="#stack"><i data-lucide="layers" class="ic"></i><span data-i18n="nav.stack">stack</span></a>
+    <a href="#contact"><i data-lucide="send" class="ic"></i><span data-i18n="nav.contact">contact</span></a>
+  </nav>
+  <div class="nav-actions">
+    <button id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+      <i data-lucide="moon" class="i-moon"></i>
+      <i data-lucide="sun" class="i-sun"></i>
+    </button>
+    <button id="langToggle" class="lang-btn mono" aria-label="Switch language">ru</button>
+    <button id="burger" aria-label="Menu" aria-expanded="false">
+      <i data-lucide="menu" class="i-menu"></i>
+      <i data-lucide="x" class="i-close"></i>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero reveal">
+    <p class="kicker" data-i18n="hero.kicker">python developer</p>
+    <h1>Hi, I'm Ehorty.</h1>
+    <p class="lead" data-i18n="hero.lead">
+      I write Python: backends, bots, automation and tools that make life easier —
+      clean code, boring-in-a-good-way infrastructure, and things that just work·py.
+    </p>
+    <div class="hero-links">
+      <a href="#projects" data-i18n="hero.projects">projects →</a>
+      <a href="https://github.com/ehorty" target="_blank" rel="noopener"><i data-lucide="github" class="ic"></i>GitHub<i data-lucide="arrow-up-right" class="ic ext"></i></a>
+      <a href="#contact" data-i18n="hero.contact">contact →</a>
+    </div>
+  </section>
+
+  <section class="reveal" id="about">
+    <h2><i data-lucide="user" class="ic"></i><span>/</span><span data-i18n="nav.about">about</span></h2>
+    <p class="lead" data-i18n="about.p1"></p>
+    <p class="lead" data-i18n="about.p2"></p>
+    <dl class="about-facts">
+      <div><dt data-i18n="about.f1t"></dt><dd data-i18n="about.f1d"></dd></div>
+      <div><dt data-i18n="about.f2t"></dt><dd data-i18n="about.f2d"></dd></div>
+      <div><dt data-i18n="about.f3t"></dt><dd data-i18n="about.f3d"></dd></div>
+    </dl>
+  </section>
+
+  <section class="reveal" id="now">
+    <h2><span>/</span><span data-i18n="nav.now">now</span></h2>
+    <div class="now">
+      <i data-lucide="zap" class="ic accent"></i>
+      <p><strong id="nowProj">pyq</strong> — <span data-i18n="now.text">a small async tool that makes long-running Python tasks way less annoying.</span></p>
+      <span class="status-badge"><span class="dot"></span><code id="myStatus">building pyq</code></span>
+    </div>
+    <div class="term" aria-label="python version check">
+      <div class="term-bar"><span></span><span></span><span></span><em>python — bash</em></div>
+      <pre class="term-body"><span class="t-prompt">$</span> python --version
+<span class="t-out">Python 3.12.8</span>
+<span class="t-prompt">$</span> pip install -q snacks<span class="t-cursor" aria-hidden="true"></span></pre>
+    </div>
+  </section>
+
+  <section class="reveal" id="projects">
+    <h2><i data-lucide="folder-git-2" class="ic"></i><span>/</span><span data-i18n="nav.projects">projects</span></h2>
+    <ul class="projects">
+      <li>
+        <a href="https://github.com/ehorty/pyq" target="_blank" rel="noopener">
+          <div class="row">
+            <h3>pyq</h3>
+            <span class="arrow">→</span>
+          </div>
+          <p data-i18n="projects.pyq">Async task queue and progress reporting for long-running Python jobs.</p>
+          <div class="tags"><span>python</span><span>asyncio</span><span>cli</span></div>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/ehorty/cleapi" target="_blank" rel="noopener">
+          <div class="row">
+            <h3>cleapi</h3>
+            <span class="arrow">→</span>
+          </div>
+          <p data-i18n="projects.cleapi">Starter kit for FastAPI services: auth, DB, tests and Docker out of the box.</p>
+          <div class="tags"><span>fastapi</span><span>pydantic</span><span>postgres</span></div>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/ehorty/telebee" target="_blank" rel="noopener">
+          <div class="row">
+            <h3>telebee</h3>
+            <span class="arrow">→</span>
+          </div>
+          <p data-i18n="projects.telebee">A small opinionated framework for structured Telegram bots with aiogram.</p>
+          <div class="tags"><span>aiogram</span><span>telegram</span><span>bots</span></div>
+        </a>
+      </li>
+      <li>
+        <div class="nolink">
+          <div class="row">
+            <h3>scraply</h3>
+            <span class="badge-private" data-i18n="projects.private">private</span>
+          </div>
+          <p data-i18n="projects.scraply">Config-driven scraper with proxies, retries and pluggable parsers.</p>
+          <div class="tags"><span>python</span><span>httpx</span><span>scraping</span></div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="reveal" id="stack">
+    <h2><i data-lucide="layers" class="ic"></i><span>/</span><span data-i18n="nav.stack">stack</span></h2>
+    <dl class="stack">
+      <dt data-i18n="stack.backend">backend</dt><dd>Python · Django · Flask · FastAPI</dd>
+      <dt data-i18n="stack.bots">bots</dt><dd>aiogram · discord.py</dd>
+      <dt data-i18n="stack.database">database</dt><dd>PostgreSQL · SQLite · Redis</dd>
+      <dt data-i18n="stack.tools">tools</dt><dd>Git · Linux · Docker · REST API</dd>
+      <dt data-i18n="stack.other">other</dt><dd>SQL · pytest · asyncio · pandas</dd>
+      <dt data-i18n="stack.fun">side quests</dt><dd data-i18n="stack.fun_desc">automation scripts &amp; weekend experiments</dd>
+    </dl>
+  </section>
+
+  <section class="reveal" id="contact">
+    <h2><i data-lucide="send" class="ic"></i><span>/</span><span data-i18n="nav.contact">contact</span></h2>
+    <p class="lead" data-i18n="contact.lead">Got an idea? Wanna collab? Or just wanna talk about Python? Hit me up.</p>
+    <div class="hero-links">
+      <a href="https://t.me/ehorty" target="_blank" rel="noopener"><i data-lucide="send" class="ic"></i>Telegram<i data-lucide="arrow-up-right" class="ic ext"></i></a>
+      <a href="https://discord.com/users/000000000000000000" target="_blank" rel="noopener"><i data-lucide="message-circle" class="ic"></i>Discord<i data-lucide="arrow-up-right" class="ic ext"></i></a>
+      <a href="https://github.com/ehorty" target="_blank" rel="noopener"><i data-lucide="github" class="ic"></i>GitHub<i data-lucide="arrow-up-right" class="ic ext"></i></a>
+    </div>
+  </section>
+
+  <footer class="reveal">
+    <p data-i18n="footer.text">© 2026 ehorty · built by hand, no frameworks harmed</p>
+  </footer>
+</main>
+
+<div id="player" class="hidden">
+  <img id="plCover" src="music/cover.jpg" alt="" loading="lazy" onerror="this.classList.add('noimg')">
+  <div class="pl-body">
+    <div class="pl-top">
+      <button id="plToggle" aria-label="Play or pause">
+        <i data-lucide="play" class="i-play"></i>
+        <i data-lucide="pause" class="i-pause"></i>
+      </button>
+      <div class="pl-meta">
+        <span id="plTitle">Ehorty - track</span>
+        <input id="plSeek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek">
+      </div>
+    </div>
+    <div class="pl-vol">
+      <i data-lucide="volume-2" class="ic"></i>
+      <input id="plVol" type="range" min="0" max="1" step="0.01" value="0.05" aria-label="Volume">
+      <span id="plTime">0:00</span>
+    </div>
+  </div>
+</div>
+
+<script src="status.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
