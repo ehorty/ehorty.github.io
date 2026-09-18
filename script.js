@@ -123,11 +123,11 @@ langToggle.addEventListener('click', () => {
   applyLang(lang);
 });
 
-// ===== Theme toggle (light is default) =====
+// ===== Theme toggle (dark synthwave is default) =====
 const root = document.documentElement;
 const toggle = document.getElementById('themeToggle');
 
-let theme = localStorage.getItem('theme') || 'light';
+let theme = localStorage.getItem('theme') || 'dark';
 root.dataset.theme = theme;
 
 toggle.addEventListener('click', () => {
