@@ -17,27 +17,27 @@ Promise.all([minDelay, pageLoaded]).then(() => {
 // ===== Localization (ru / en) =====
 const i18n = {
   en: {
-    'hero.kicker': 'python developer',
-    'hero.lead': 'i write python: backends, bots, automation and tools that make life easier — clean code, boring-in-a-good-way infrastructure, and things that just work·py.',
+    'hero.kicker': 'python engineer',
+    'hero.lead': "i'm Ehorty, a Python developer. backends, telegram bots, scripts and small tools that make everyday life easier — simple, readable code that doesn't explode at 2 a.m.",
     'hero.projects': 'projects →',
     'hero.contact': 'contact →',
 
     'nav.about': 'about',
-    'about.p1': "hey. no idea how you ended up here, but hi. i'm a python developer who likes building things — backends, telegram bots, cli tools, random experiments, whatever. i like clean code, good structure, and code that doesn't catch fire at 3am.",
-    'about.p2': 'when i’m not writing python, i’m probably automating something that should have been automated years ago.',
+    'about.p1': "nice to meet you. i'm Ehorty, a Python developer. most of my time goes into backends, bots and automation. i like readable code, clear structure, and finally fixing the bug that drove me crazy for a week.",
+    'about.p2': "when i'm not coding, i'm probably listening to music, playing something, or coming up with the next idea.",
 
-    'about.f1t': 'main thing',
-    'about.f1d': 'backend, bots & automation in python',
-    'about.f2t': 'rn',
-    'about.f2d': 'building pyq — currently cooking',
-    'about.f3t': 'open to',
-    'about.f3d': 'cool collabs, weird ideas & side quests',
+    'about.f1t': 'focus',
+    'about.f1d': 'backends · bots · automation',
+    'about.f2t': 'now',
+    'about.f2d': 'learning async python & improving my own tools',
+    'about.f3t': 'open for',
+    'about.f3d': 'projects, ideas and friendly collabs',
 
     'nav.now': 'now',
-    'now.text': 'a small async tool that makes long-running python tasks way less annoying.',
+    'now.text': 'digging deeper into async python and polishing my own toolbox. more public projects on the way.',
 
     'nav.projects': 'projects',
-    'projects.site': 'this very site — hand-built bio page with a music player, EN/RU and light/dark themes.',
+    'projects.site': 'this site itself — my personal page with a music player, two languages and light/dark themes.',
 
     'nav.stack': 'stack',
     'stack.backend': 'backend',
@@ -45,40 +45,40 @@ const i18n = {
     'stack.database': 'database',
     'stack.tools': 'tools',
     'stack.other': 'other',
-    'stack.fun': 'side quests',
-    'stack.fun_desc': 'automation scripts & weekend experiments',
+    'stack.fun': 'extras',
+    'stack.fun_desc': 'pet projects & experiments',
 
     'nav.contact': 'contact',
-    'contact.lead': 'got an idea? wanna collab? or just wanna talk about python? hit me up.',
+    'contact.lead': 'want to discuss something, share an idea, or just say hi? write to me — happy to chat.',
 
-    'footer.text': '© 2026 ehorty · built by hand · 0 frameworks were harmed',
+    'footer.text': '© 2026 ehorty · from ehorty import website',
 
-    'gate.title': 'press anywhere to continue',
-    'gate.note': 'this site has music. use the player in the bottom-left corner to lower the volume.'
+    'gate.title': 'click anywhere to continue',
+    'gate.note': 'music plays on this site. you can adjust the volume in the player at the bottom left.'
   },
 
   ru: {
     'hero.kicker': 'питон-разработчик',
-    'hero.lead': 'пишу на python: бэкенды, ботов, автоматизацию и инструменты, которые облегчают жизнь — чистый код, инфраструктура, которая стабильно работает, и штуки, которые просто работают·py.',
+    'hero.lead': 'привет, я Ehorty — Python-разработчик. бэкенды, телеграм-боты, скрипты и маленькие инструменты, которые делают жизнь проще: простой, читаемый код, который не «взрывается» в два часа ночи.',
     'hero.projects': 'проекты →',
     'hero.contact': 'контакты →',
 
-    'nav.about': 'инфа',
-    'about.p1': 'хей. хз, как ты сюда попал, но привет. я питон-разработчик, люблю что-нибудь собирать — бэкенды, телеграм-ботов, cli-шки, рандомные эксперименты, короче всё подряд. люблю чистый код, нормальную структуру и код, который не полыхает в 3 часа ночи.',
-    'about.p2': 'когда не пишу на python, скорее всего автоматизирую то, что надо было автоматизировать ещё пару лет назад.',
+    'nav.about': 'обо мне',
+    'about.p1': 'рад знакомству. я Ehorty, питон-разработчик. большая часть времени уходит на бэкенды, ботов и автоматизацию. люблю читаемый код, понятную структуру и наконец-то починку бага, который доводил целую неделю.',
+    'about.p2': 'когда не пишу код — скорее всего слушаю музыку, играю во что-нибудь или придумываю следующую идею.',
 
-    'about.f1t': 'основное',
-    'about.f1d': 'бэкенд, боты и автоматизация на python',
+    'about.f1t': 'фокус',
+    'about.f1d': 'бэкенд · боты · автоматизация',
     'about.f2t': 'щас',
-    'about.f2d': 'пилю pyq — кухня кипит',
+    'about.f2d': 'изучаю async-питон и прокачиваю свои инструменты',
     'about.f3t': 'открыт к',
-    'about.f3d': 'крутым коллабам, странным идеям и сайд-квестам',
+    'about.f3d': 'проектам, идеям и приятным коллабам',
 
-    'nav.now': 'щас',
-    'now.text': 'маленький асинхронный инструмент, из-за которого долгие python-задачи достают гораздо меньше.',
+    'nav.now': 'сейчас',
+    'now.text': 'копаю глубже в async-python и довожу до ума свою обвязку для ботов. скоро будет больше публичных проектов.',
 
     'nav.projects': 'проекты',
-    'projects.site': 'этот самый сайт — био-страница, собранная руками: музыкальный плеер, EN/RU и светлая/тёмная темы.',
+    'projects.site': 'этот самый сайт — моя личная страница: музыкальный плеер, два языка и светлая/тёмная темы.',
 
     'nav.stack': 'стек',
     'stack.backend': 'бэкенд',
@@ -86,16 +86,16 @@ const i18n = {
     'stack.database': 'базы данных',
     'stack.tools': 'инструменты',
     'stack.other': 'прочее',
-    'stack.fun': 'сайд-квесты',
-    'stack.fun_desc': 'автоматизация и эксперименты на выходных',
+    'stack.fun': 'ещё',
+    'stack.fun_desc': 'пет-проекты и эксперименты',
 
     'nav.contact': 'контакты',
-    'contact.lead': 'есть идея? хочешь коллаб? или просто хочешь поболтать про python? пиши.',
+    'contact.lead': 'хочешь что-то обсудить, поделиться идеей или просто поздороваться? напиши — всегда рад поболтать.',
 
-    'footer.text': '© 2026 ehorty · сделано руками · 0 фреймворков пострадало',
+    'footer.text': '© 2026 ehorty · from ehorty import website',
 
-    'gate.title': 'нажмите по экрану чтобы продолжить',
-    'gate.note': 'на сайте имеется музыка. слева снизу будет плеер, где вы можете понизить громкость.'
+    'gate.title': 'нажми где угодно, чтобы продолжить',
+    'gate.note': 'на этом сайте играет музыка. громкость можно менять в плеере слева снизу.'
   }
 };
 
