@@ -1,294 +1,253 @@
-// ===== Boot =====
-const boot = document.getElementById('boot');
+(() => {
+  'use strict';
 
-const bootMin = new Promise((r) => setTimeout(r, 900));
-const pageLoaded = document.readyState === 'complete'
-  ? Promise.resolve()
-  : new Promise((r) => window.addEventListener('load', r, { once: true }));
+  lucide.createIcons();
 
-Promise.all([bootMin, pageLoaded]).then(() => boot.classList.add('done'));
+  const ls = window.localStorage;
+  const $ = (id) => document.getElementById(id);
 
-// ===== Localization =====
-const i18n = {
-  en: {
-    'boot.tag': 'est. 2026 · black & white edition',
-    'nav.who': 'who',
-    'nav.work': 'work',
-    'nav.stack': 'stack',
-    'nav.talk': 'talk',
+  const i18n = {
+    en: {
+      'nav.vibe': 'vibe',
+      'nav.stack': 'stack',
+      'nav.drops': 'drops',
+      'nav.link': 'link',
+      'hero.eyebrow': 'python engineer · open to the game',
+      'hero.lead': 'Backends, bots & little automations — handled with serious drip. Black & white base, one loud accent. That\u2019s the whole palette.',
+      'hero.drops': 'view the drops',
+      'hero.talk': 'link up',
+      'hero.status': 'status / open for projects',
+      'hero.now': 'now spinning: async python, deep cuts only',
+      'vibe.title': 'the vibe',
+      'vibe.big': 'Clean code, clean cuts, zero grey areas. If it runs twice — it gets scripted.',
+      'vibe.c1t': 'Clean',
+      'vibe.c1d': 'Typed, tested, tidy. Code you can read next Monday.',
+      'vibe.c2t': 'Swift',
+      'vibe.c2d': 'Fast delivery, no drama, no missed deadlines.',
+      'vibe.c3t': 'Deep',
+      'vibe.c3d': 'Currently going deeper into asyncio and tooling.',
+      'stack.title': 'the kit',
+      'stack.s1': 'backend',
+      'stack.s2': 'bots',
+      'stack.s3': 'data',
+      'stack.s4': 'tools',
+      'drops.title': 'drops',
+      'drops.d1': 'This very page — hand-built, bilingual, with a soundtrack.',
+      'drops.d2': 'Compiling in the background. Watch this space.',
+      'drops.coming': 'soon',
+      'drops.t2': 'private · building',
+      'link.title': 'link up',
+      'link.big': 'Got an idea?<br>Let\u2019s keep it <span class="accent">SWAG.</span>',
+      'footer.copy': '\u00A9 2026 ehorty — swag edition, no refunds',
+      'footer.hint': 'psst — type',
+      'dock.title': 'swag_theme.mp3',
+    },
+    ru: {
+      'nav.vibe': 'вайб',
+      'nav.stack': 'арсенал',
+      'nav.drops': 'дропы',
+      'nav.link': 'связь',
+      'hero.eyebrow': 'python engineer · открыт к движу',
+      'hero.lead': 'Бэкенды, боты и мелкая автоматизация — с настоящим вайбом. Чёрно-белая база, один громкий акцент. Вся палитра.',
+      'hero.drops': 'смотреть дропы',
+      'hero.talk': 'связаться',
+      'hero.status': 'статус / открыт для проектов',
+      'hero.now': 'сейчас в эфире: async python, только глубь',
+      'vibe.title': 'вайб',
+      'vibe.big': 'Чистый код, чистые резы, ноль серых зон. Запустилось дважды — значит, скриптуем.',
+      'vibe.c1t': 'Чисто',
+      'vibe.c1d': 'Типизировано, протестировано, опрятно. Код, который читается в понедельник.',
+      'vibe.c2t': 'Быстро',
+      'vibe.c2d': 'Скорость сдачи, без драмы и сорванных дедлайнов.',
+      'vibe.c3t': 'Глубоко',
+      'vibe.c3d': 'Сейчас копаю глубже в asyncio и инструментарий.',
+      'stack.title': 'арсенал',
+      'stack.s1': 'бэкенд',
+      'stack.s2': 'боты',
+      'stack.s3': 'данные',
+      'stack.s4': 'инструменты',
+      'drops.title': 'дропы',
+      'drops.d1': 'Эта самая страница — ручная сборка, два языка, со звуком.',
+      'drops.d2': 'Компилируется в фоне. Следи за этой строкой.',
+      'drops.coming': 'скоро',
+      'drops.t2': 'приватно · собираю',
+      'link.title': 'на связи',
+      'link.big': 'Идея есть?<br>Сделаем это <span class="accent">SWAG.</span>',
+      'footer.copy': '\u00A9 2026 ehorty — свэг-издание, без возвратов',
+      'footer.hint': 'псс — введи',
+      'dock.title': 'swag_theme.mp3',
+    },
+  };
 
-    'hero.eyebrow': '// python engineer — open to projects',
-    'hero.lead': 'Bots, backends and tiny busted-automations. Rendered in pure black & white, shipped in 2026.',
-    'hero.work': 'see the work',
-    'hero.talk': 'let\u2019s talk',
-    'hero.s1': '100% mono',
-    'hero.s2': 'no drama',
-    'hero.m1': 'location: anywhere',
-    'hero.m2': 'status: open',
+  const langBtn = $('langToggle');
+  const invertBtn = $('invertBtn');
+  const burger = $('burger');
+  const nav = $('nav');
+  const toast = $('swagToast');
+  const boot = $('boot');
 
-    'who.title': 'who',
-    'who.big': 'Backends with manners, bots that don\u2019t nag, automation that just works. If it runs twice — I script it.',
-    'who.f1t': 'core',
-    'who.f1d': 'api · bots · automation',
-    'who.f2t': 'style',
-    'who.f2d': 'typed · tested · tidy',
-    'who.f3t': 'vibe',
-    'who.f3d': 'black & white, zero grey',
+  let lang = ls.getItem('lang') || 'en';
+  if (!['en', 'ru'].includes(lang)) lang = 'en';
+  let theme = ls.getItem('theme') || 'dark';
+  if (!['dark', 'light'].includes(theme)) theme = 'dark';
 
-    'work.title': 'work',
-    'work.p1': 'this very page — monochrome, built by hand, two languages.',
-    'work.p2': 'currently compiling. watch this space.',
-    'work.t2': 'soon',
+  document.documentElement.setAttribute('data-theme', theme);
+  boot.classList.add('done');
+  setTimeout(() => boot.remove(), 520);
 
-    'stack.title': 'stack',
-    'stack.s1': 'backend',
-    'stack.s2': 'bots',
-    'stack.s3': 'data',
-    'stack.s4': 'tools',
-
-    'talk.title': 'talk',
-    'talk.big': 'Got an idea?\nLet\u2019s make it <span class="outlined">black&nbsp;&amp;&nbsp;white.</span>',
-
-    'footer.copy': '© 2026 ehorty — made in b/w, no filters',
-    'footer.hint': 'psst — type',
-
-    'dock.title': 'noir.mp3'
-  },
-
-  ru: {
-    'boot.tag': 'осн. 2026 · чёрно-белое издание',
-    'nav.who': 'кто',
-    'nav.work': 'работа',
-    'nav.stack': 'стек',
-    'nav.talk': 'связь',
-
-    'hero.eyebrow': '// питон-инженер — открыт к проектам',
-    'hero.lead': 'Боты, бэкенды и маленькие сломанные автоматизации. Отрисовано в чистом чёрно-белом, выпущено в 2026.',
-    'hero.work': 'смотреть работы',
-    'hero.talk': 'обсудить',
-    'hero.s1': '100% моно',
-    'hero.s2': 'без драмы',
-    'hero.m1': 'локация: где угодно',
-    'hero.m2': 'статус: открыт',
-
-    'who.title': 'кто',
-    'who.big': 'Бэкенды с манерами, боты без навязчивости, автоматизация, которая просто работает. Если сработало дважды — я скриптую.',
-    'who.f1t': 'ядро',
-    'who.f1d': 'api · боты · автоматизация',
-    'who.f2t': 'стиль',
-    'who.f2d': 'типизировано · с тестами · чисто',
-    'who.f3t': 'вайб',
-    'who.f3d': 'чёрно-белое, без серого',
-
-    'work.title': 'работа',
-    'work.p1': 'эта самая страница — монохромная, собрана вручную, два языка.',
-    'work.p2': 'сейчас компилируется. следи за обновлениями.',
-    'work.t2': 'скоро',
-
-    'stack.title': 'стек',
-    'stack.s1': 'бэкенд',
-    'stack.s2': 'боты',
-    'stack.s3': 'данные',
-    'stack.s4': 'инструменты',
-
-    'talk.title': 'связь',
-    'talk.big': 'Есть идея?\nСделаем в <span class="outlined">чёрно-белом.</span>',
-
-    'footer.copy': '© 2026 ehorty — сделано в ч/б, без фильтров',
-    'footer.hint': 'тсс, введи',
-
-    'dock.title': 'noir.mp3'
-  }
-};
-
-const langToggle = document.getElementById('langToggle');
-const hintEl = document.querySelector('.foot-hint');
-
-function applyLang(lang) {
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-i18n]').forEach((el) => {
-    const key = el.dataset.i18n;
-    if (i18n[lang][key] !== undefined) {
-      if (key === 'talk.big') {
-        el.innerHTML = i18n[lang][key].replace(/\n/g, '<br>');
-      } else if (key === 'footer.hint') {
-        el.textContent = i18n[lang][key] + ' ';
+  function applyLang() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      const val = i18n[lang][key] || key;
+      if (key === 'footer.hint') {
+        el.textContent = val + ' ';
         const code = document.createElement('code');
         code.textContent = 'swag';
         el.appendChild(code);
       } else {
-        el.textContent = i18n[lang][key];
+        el.innerHTML = val;
       }
+    });
+  }
+  applyLang();
+
+  langBtn.addEventListener('click', () => {
+    lang = lang === 'en' ? 'ru' : 'en';
+    ls.setItem('lang', lang);
+    applyLang();
+  });
+
+  invertBtn.addEventListener('click', () => {
+    theme = theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', theme);
+    ls.setItem('theme', theme);
+  });
+
+  burger.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+  });
+
+  document.addEventListener('click', (e) => {
+    if (nav.classList.contains('open') && !nav.contains(e.target) && !burger.contains(e.target)) {
+      nav.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
     }
   });
-  langToggle.textContent = lang === 'ru' ? 'EN' : 'RU';
-}
 
-let lang = localStorage.getItem('lang') || 'en';
-applyLang(lang);
+  const typed = [];
+  const target = 'swag';
+  document.addEventListener('keydown', (e) => {
+    if (e.key.length !== 1 || e.ctrlKey || e.metaKey || e.altKey) return;
+    typed.push(e.key.toLowerCase());
+    if (typed.length > target.length) typed.shift();
+    if (typed.join('') === target) {
+      typed.length = 0;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1600);
+    }
+  });
 
-langToggle.addEventListener('click', () => {
-  lang = lang === 'ru' ? 'en' : 'ru';
-  localStorage.setItem('lang', lang);
-  applyLang(lang);
-});
-
-// ===== Invert theme =====
-const root = document.documentElement;
-const invertBtn = document.getElementById('invertBtn');
-
-let theme = localStorage.getItem('theme') || 'dark';
-root.dataset.theme = theme;
-
-invertBtn.addEventListener('click', () => {
-  theme = theme === 'dark' ? 'light' : 'dark';
-  root.dataset.theme = theme;
-  localStorage.setItem('theme', theme);
-});
-
-// ===== Icons =====
-if (window.lucide) lucide.createIcons();
-
-// ===== Reveal =====
-const reveal = new IntersectionObserver(
-  (entries) => {
-    for (const entry of entries) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        reveal.unobserve(entry.target);
+        io.unobserve(entry.target);
       }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  const dock = $('dock');
+  const playBtn = $('dockPlay');
+  const seek = $('dockSeek');
+  const volume = $('dockVol');
+  const timeEl = $('dockTime');
+
+  let ctx = null;
+  let trackBuffer = null;
+  let source = null;
+  let gain = null;
+  let startedAt = 0;
+
+  fetch('music/track.mp3')
+    .then((r) => {
+      if (!r.ok) throw new Error('music ' + r.status);
+      return r.arrayBuffer();
+    })
+    .then((buf) => new (window.AudioContext || window.webkitAudioContext)().decodeAudioData(buf))
+    .then((decoded) => { trackBuffer = decoded; })
+    .catch((err) => console.error('[dock]', err));
+
+  const fmt = (s) => {
+    if (!isFinite(s) || s < 0) s = 0;
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return m + ':' + String(sec).padStart(2, '0');
+  };
+
+  function startPlayback() {
+    ctx = (window.AudioContext || window.webkitAudioContext)();
+    source = ctx.createBufferSource();
+    source.buffer = trackBuffer;
+    source.loop = true;
+    gain = ctx.createGain();
+    gain.gain.value = Number(volume.value);
+    source.connect(gain).connect(ctx.destination);
+    const at = Math.min(seek.value, (trackBuffer.duration || 1) - 0.1);
+    source.start(0, at);
+    startedAt = ctx.currentTime - seek.value;
+    dock.classList.add('playing');
+    playBtn.setAttribute('aria-label', 'pause');
+  }
+
+  function tweak() {
+    if (!source || !trackBuffer) return;
+    const t = ctx.currentTime - startedAt;
+    seek.max = trackBuffer.duration || 100;
+    seek.value = t;
+    timeEl.textContent = fmt(t) + ' / ' + fmt(trackBuffer.duration);
+  }
+
+  playBtn.addEventListener('click', () => {
+    if (!trackBuffer) return;
+    if (!source) {
+      startPlayback();
+      requestAnimationFrame(() => requestAnimationFrame(tweaks()));
+    } else if (ctx.state === 'suspended') {
+      ctx.resume();
+      startedAt = ctx.currentTime - seek.value;
+      dock.classList.add('playing');
+      playBtn.setAttribute('aria-label', 'pause');
+    } else {
+      ctx.suspend();
+      dock.classList.remove('playing');
+      playBtn.setAttribute('aria-label', 'play');
     }
-  },
-  { threshold: 0.12 }
-);
-document.querySelectorAll('.reveal').forEach((el) => reveal.observe(el));
+  });
 
-// ===== Burger =====
-const burger = document.getElementById('burger');
-const nav = document.getElementById('nav');
-
-burger.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  burger.classList.toggle('open', open);
-  burger.setAttribute('aria-expanded', String(open));
-});
-
-nav.querySelectorAll('a').forEach((a) =>
-  a.addEventListener('click', () => {
-    nav.classList.remove('open');
-    burger.classList.remove('open');
-    burger.setAttribute('aria-expanded', 'false');
-  })
-);
-
-// ===== Easter egg: type "swag" =====
-const swagToast = document.getElementById('swagToast');
-let swagBuffer = '';
-let swagTimer = null;
-
-function doSwag() {
-  swagToast.classList.add('show');
-  clearTimeout(swagTimer);
-  swagTimer = setTimeout(() => swagToast.classList.remove('show'), 1400);
-}
-
-document.addEventListener('keydown', (e) => {
-  if (e.key.length !== 1) return;
-  const ev = e.target.tagName;
-  if (ev === 'INPUT' || ev === 'TEXTAREA') return;
-  swagBuffer = (swagBuffer + e.key.toLowerCase()).slice(-4);
-  if (swagBuffer === 'swag') {
-    swagBuffer = '';
-    doSwag();
+  function tweaks() {
+    tweak();
+    requestAnimationFrame(tweaks);
   }
-});
+  tweaks();
 
-// ===== Music dock =====
-const audio = new Audio('music/track.mp3');
-audio.loop = true;
-audio.preload = 'auto';
+  seek.addEventListener('input', () => {
+    if (source && ctx.state === 'running') {
+      startedAt = ctx.currentTime - Number(seek.value);
+      timeEl.textContent = fmt(seek.value) + ' / ' + fmt(trackBuffer && trackBuffer.duration);
+    }
+  });
 
-const dock = document.getElementById('dock');
-const dockPlay = document.getElementById('dockPlay');
-const dockSeek = document.getElementById('dockSeek');
-const dockVol = document.getElementById('dockVol');
-const dockTime = document.getElementById('dockTime');
+  volume.addEventListener('input', () => {
+    if (gain) gain.gain.value = Number(volume.value);
+  });
 
-const DEFAULT_VOL = 0.05;
-let audioCtx = null;
-let gainNode = null;
-let started = false;
-
-function fmt(s) {
-  if (!isFinite(s)) return '0:00';
-  const m = Math.floor(s / 60);
-  const sec = Math.floor(s % 60);
-  return m + ':' + String(sec).padStart(2, '0');
-}
-
-function initWebAudio() {
-  if (audioCtx) return;
-  const Ctx = window.AudioContext || window.webkitAudioContext;
-  if (!Ctx) { audio.volume = DEFAULT_VOL; return; }
-  try {
-    audioCtx = new Ctx();
-    const source = audioCtx.createMediaElementSource(audio);
-    gainNode = audioCtx.createGain();
-    gainNode.gain.value = DEFAULT_VOL;
-    source.connect(gainNode);
-    gainNode.connect(audioCtx.destination);
-    audio.volume = 1;
-  } catch (err) {
-    console.warn('Web Audio init failed:', err);
-    audioCtx = null;
-    gainNode = null;
-    audio.volume = DEFAULT_VOL;
+  window.addEventListener('pointerdown', showDock, { once: true });
+  function showDock() {
+    dock.classList.remove('hidden');
   }
-}
-
-function setVolume(value) {
-  const v = Math.min(1, Math.max(0, Number(value)));
-  if (gainNode) gainNode.gain.setTargetAtTime(v, audioCtx.currentTime, 0.01);
-  else audio.volume = v;
-}
-
-function tryStart() {
-  if (started) return;
-  started = true;
-  dock.classList.remove('hidden');
-  initWebAudio();
-  if (audioCtx?.state === 'suspended') audioCtx.resume();
-  setVolume(dockVol.value || DEFAULT_VOL);
-  audio.play().catch(() => {});
-  document.removeEventListener('pointerdown', tryStart);
-  document.removeEventListener('keydown', tryStart);
-}
-
-document.addEventListener('pointerdown', tryStart);
-document.addEventListener('keydown', tryStart);
-
-dockPlay.addEventListener('click', () => {
-  if (audio.paused) {
-    if (audioCtx?.state === 'suspended') audioCtx.resume();
-    audio.play().catch(() => {});
-  } else {
-    audio.pause();
-  }
-});
-
-audio.addEventListener('play', () => dock.classList.add('playing'));
-audio.addEventListener('pause', () => dock.classList.remove('playing'));
-
-audio.addEventListener('timeupdate', () => {
-  if (!dockSeek.matches(':active')) {
-    dockSeek.value = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
-  }
-  dockTime.textContent = fmt(audio.currentTime);
-});
-
-dockSeek.addEventListener('input', () => {
-  if (audio.duration) audio.currentTime = (dockSeek.value / 100) * audio.duration;
-});
-
-dockVol.addEventListener('input', () => setVolume(dockVol.value));
-dockVol.addEventListener('change', () => setVolume(dockVol.value));
+})();
