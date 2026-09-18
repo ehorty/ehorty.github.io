@@ -17,28 +17,29 @@ Promise.all([minDelay, pageLoaded]).then(() => {
 // ===== Localization (ru / en) =====
 const i18n = {
   en: {
-    'hero.kicker': 'python engineer',
-    'hero.lead': "Python engineer focused on backends, bots and automation. I write code that reads well, runs reliably and stays out of my way at 3 a.m.",
+    'hero.kicker': 'python engineer · open to projects',
+    'hero.lead': "Python engineer who builds backends, bots and little automations. My code reads well, runs on time and brushes its teeth before bed.",
     'hero.projects': 'see projects',
     'hero.contact': 'contact',
 
     'nav.about': 'about',
-    'about.p1': "I'm Ehorty, a Python engineer. My day-to-day is backends, Telegram bots and scripts that quietly remove boring tasks from my life. I care about readable code, tested logic, and tools that keep working long after the excitement wears off.",
-    'about.p2': "When I step away from the keyboard, I'm usually tuning some small personal project, listening to music, or chasing a good idea before it escapes.",
+    'about.p1': "I'm Ehorty, a Python engineer. By day (and sometimes by night) I build backends, Telegram bots and tiny automations that quietly handle the boring parts of life. I like code that's easy to read tomorrow and behaves politely.",
+    'about.p2': "when I'm away from the keyboard, I'm usually cooking a personal project, listening to music, or chasing a good idea before it runs off.",
 
     'about.f1t': 'focus',
     'about.f1d': 'backends · bots · automation',
     'about.f2t': 'status',
-    'about.f2d': 'open to new projects and ideas',
+    'about.f2d': 'open to projects & ideas',
     'about.f3t': 'motto',
     'about.f3d': 'if it runs twice, script it',
 
     'nav.now': 'now',
     'now.text': 'polishing my own toolbox and going deeper into async python. public projects are on the way.',
+    'progress.label': 'cooking something',
 
     'nav.projects': 'projects',
-    'projects.site': "the page you're reading right now. handcrafted, dark theme, a music player, and two languages.",
-    'projects.more': 'more public projects are on the way — stay tuned.',
+    'projects.site': "the page you're reading right now. handcrafted, playful, with a music player and two languages.",
+    'projects.more': 'more public projects are cooking in the oven — stay tuned.',
 
     'nav.stack': 'stack',
     'stack.backend': 'backend',
@@ -48,37 +49,38 @@ const i18n = {
     'stack.other': 'other',
 
     'nav.contact': 'contact',
-    'contact.lead': 'have a project, an idea, or just want to say hi? my inbox is open.',
+    'contact.lead': 'have a project, an idea, or just want to say hi? my inbox is always open.',
 
-    'footer.text': '© 2026 ehorty · built with python and patience',
+    'footer.text': '© 2026 ehorty · made with 🐍 and patience',
 
     'gate.title': 'tap to enter',
-    'gate.note': "there's music playing on this site — you can turn it down in the player at the bottom left."
+    'gate.note': "there's music playing here — turn it down in the player at the bottom left."
   },
 
   ru: {
-    'hero.kicker': 'питон-инженер',
-    'hero.lead': 'Python-инженер: бэкенды, боты и автоматизация. Пишу код, который легко читается, стабильно работает и не мешает спать в три ночи.',
+    'hero.kicker': 'питон-инженер · открыт к проектам',
+    'hero.lead': 'Python-инженер: бэкенды, боты и маленькие автоматизации. Мой код понятен, всё делает вовремя и чистит зубы перед сном.',
     'hero.projects': 'проекты',
     'hero.contact': 'контакты',
 
     'nav.about': 'обо мне',
-    'about.p1': 'Я Ehorty — python-инженер. В основе — бэкенды, телеграм-боты и скрипты, которые тихо убирают скучные задачи из жизни. Ценю читаемый код, проверенную логику и инструменты, которые работают даже когда первый восторг прошёл.',
-    'about.p2': 'Когда отхожу от клавиатуры — довожу до ума личный проект, слушаю музыку или ловлю хорошую идею, пока она не убежала.',
+    'about.p1': 'Я Ehorty — python-инженер. Днём (а иногда и ночью) собираю бэкенды, телеграм-ботов и маленькие автоматизации, которые тихо берут на себя скучную часть жизни. Нравится код, который легко читается завтра и ведёт себя прилично.',
+    'about.p2': 'когда отхожу от клавиатуры — довожу до ума личный проект, слушаю музыку или бегу за хорошей идеей, пока она не сбежала.',
 
     'about.f1t': 'фокус',
     'about.f1d': 'бэкенды · боты · автоматизация',
     'about.f2t': 'статус',
-    'about.f2d': 'открыт к новым проектам и идеям',
+    'about.f2d': 'открыт к проектам и идеям',
     'about.f3t': 'девиз',
     'about.f3d': 'что запускается дважды — скриптуется',
 
     'nav.now': 'щас',
     'now.text': 'довожу до ума свою обвязку и копаю глубже в async-python. публичные проекты скоро появятся.',
+    'progress.label': 'что-то готовлю',
 
     'nav.projects': 'проекты',
-    'projects.site': 'страница, которую ты сейчас читаешь. собрана вручную: тёмная тема, музыка, два языка.',
-    'projects.more': 'скоро будет больше публичных проектов — следи за обновлениями.',
+    'projects.site': 'страница, которую ты сейчас читаешь. собрана вручную: весёлая, с музыкой и двумя языками.',
+    'projects.more': 'в печи ещё проекты — следи за обновлениями.',
 
     'nav.stack': 'стек',
     'stack.backend': 'бэкенд',
@@ -88,12 +90,12 @@ const i18n = {
     'stack.other': 'прочее',
 
     'nav.contact': 'контакты',
-    'contact.lead': 'есть проект, идея или просто хочется поздороваться? я открыт для сообщений.',
+    'contact.lead': 'есть проект, идея или просто хочется поздороваться? я всегда на связи.',
 
-    'footer.text': '© 2026 ehorty · собрано на python и терпении',
+    'footer.text': '© 2026 ehorty · сделано с 🐍 и терпением',
 
     'gate.title': 'нажми, чтобы войти',
-    'gate.note': 'на сайте играет музыка — громкость можно убрать в плеере слева снизу.'
+    'gate.note': 'тут играет музыка — громкость можно убрать в плеере слева снизу.'
   }
 };
 
@@ -117,20 +119,17 @@ langToggle.addEventListener('click', () => {
   applyLang(lang);
 });
 
-// ===== Theme toggle =====
+// ===== Theme toggle (light is default) =====
 const root = document.documentElement;
 const toggle = document.getElementById('themeToggle');
-const stored = localStorage.getItem('theme');
 
-if (stored === 'light' || (stored === null && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-  root.dataset.theme = 'light';
-}
+let theme = localStorage.getItem('theme') || 'light';
+root.dataset.theme = theme;
 
 toggle.addEventListener('click', () => {
-  const next = root.dataset.theme === 'light' ? 'dark' : 'light';
-  if (next === 'dark') delete root.dataset.theme;
-  else root.dataset.theme = 'light';
-  localStorage.setItem('theme', next);
+  theme = theme === 'dark' ? 'light' : 'dark';
+  root.dataset.theme = theme;
+  localStorage.setItem('theme', theme);
 });
 
 // ===== Reveal on scroll =====
@@ -184,24 +183,24 @@ if (window.MY_STATUS) {
   }
 }
 
-// ===== sudo mode (type "sudo") =====
-const SUDO_WORD = 'sudo';
-let sudoBuffer = '';
+// ===== Party mode (type "python") =====
+const PYP_WORD = 'python';
+let pypBuffer = '';
 
-function toggleRoot() {
-  document.body.classList.toggle('root');
+function toggleParty() {
+  document.body.classList.toggle('party');
 }
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && document.body.classList.contains('root')) {
-    document.body.classList.remove('root');
+  if (e.key === 'Escape' && document.body.classList.contains('party')) {
+    document.body.classList.remove('party');
     return;
   }
   if (e.key.length !== 1) return;
-  sudoBuffer = (sudoBuffer + e.key.toLowerCase()).slice(-SUDO_WORD.length);
-  if (sudoBuffer === SUDO_WORD) {
-    sudoBuffer = '';
-    toggleRoot();
+  pypBuffer = (pypBuffer + e.key.toLowerCase()).slice(-PYP_WORD.length);
+  if (pypBuffer === PYP_WORD) {
+    pypBuffer = '';
+    toggleParty();
   }
 });
 
