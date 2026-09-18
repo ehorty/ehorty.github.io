@@ -188,7 +188,9 @@ body {
   font-size: .82rem;
   letter-spacing: .08em;
   text-transform: uppercase;
-  animation: tick 26s linear infinite;
+  width: max-content;
+  will-change: transform;
+  animation: tick 48s linear infinite;
 }
 .ticker-track span:nth-child(odd) { color: var(--muted); }
 .ticker-track span:nth-child(4n) { color: var(--accent); }
