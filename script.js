@@ -1,110 +1,127 @@
 // ===== Boot =====
 const boot = document.getElementById('boot');
 
-const bootMin = new Promise((r) => setTimeout(r, 1300));
+const bootMin = new Promise((r) => setTimeout(r, 900));
 const pageLoaded = document.readyState === 'complete'
   ? Promise.resolve()
   : new Promise((r) => window.addEventListener('load', r, { once: true }));
 
-Promise.all([bootMin, pageLoaded]).then(() => {
-  boot.classList.add('ready');
-  setTimeout(() => boot.classList.add('done'), 650);
-});
+Promise.all([bootMin, pageLoaded]).then(() => boot.classList.add('done'));
 
 // ===== Localization =====
 const i18n = {
   en: {
-    'nav.profile': 'profile',
-    'nav.stages': 'stages',
-    'nav.powers': 'powers',
-    'nav.coins': 'coins',
+    'boot.tag': 'est. 2026 · black & white edition',
+    'nav.who': 'who',
+    'nav.work': 'work',
+    'nav.stack': 'stack',
+    'nav.talk': 'talk',
 
-    'hero.lead': 'backends, bots and tiny automations. drop a coin, get a level-up.',
-    'hero.start': 'start game',
-    'hero.coin': 'insert coin',
+    'hero.eyebrow': '// python engineer — open to projects',
+    'hero.lead': 'Bots, backends and tiny busted-automations. Rendered in pure black & white, shipped in 2026.',
+    'hero.work': 'see the work',
+    'hero.talk': 'let\u2019s talk',
+    'hero.s1': '100% mono',
+    'hero.s2': 'no drama',
+    'hero.m1': 'location: anywhere',
+    'hero.m2': 'status: open',
 
-    'profile.title': 'PLAYER PROFILE',
-    'profile.tag': 'class python.Craftsman',
-    'profile.s1n': 'SPD',
-    'profile.s1d': 'fast delivery, no crunch',
-    'profile.s2n': 'ATK',
-    'profile.s2d': 'backends & bots',
-    'profile.s3n': 'LUK',
-    'profile.s3d': 'debugs after midnight',
+    'who.title': 'who',
+    'who.big': 'Backends with manners, bots that don\u2019t nag, automation that just works. If it runs twice — I script it.',
+    'who.f1t': 'core',
+    'who.f1d': 'api · bots · automation',
+    'who.f2t': 'style',
+    'who.f2d': 'typed · tested · tidy',
+    'who.f3t': 'vibe',
+    'who.f3d': 'black & white, zero grey',
 
-    'stages.title': 'SELECT YOUR STAGE',
-    'stages.st1': 'a playable adventure in html/css/js. two languages, one soundtrack. you are inside it.',
-    'stages.st2': 'currently compiling. warp gate opening soon.',
-    'stages.lock': 'locked — see high scores',
+    'work.title': 'work',
+    'work.p1': 'this very page — monochrome, built by hand, two languages.',
+    'work.p2': 'currently compiling. watch this space.',
+    'work.t2': 'soon',
 
-    'powers.title': 'POWER-UPS',
-    'powers.w': 'WEAPONS',
-    'powers.d': 'REMOTE',
-    'powers.s': 'SHIELD',
-    'powers.b': 'BOOST',
+    'stack.title': 'stack',
+    'stack.s1': 'backend',
+    'stack.s2': 'bots',
+    'stack.s3': 'data',
+    'stack.s4': 'tools',
 
-    'coins.title': 'HIGH SCORES',
-    'coins.lead': 'want a co-op run or a score to beat? ring the arcade owner.',
+    'talk.title': 'talk',
+    'talk.big': 'Got an idea?\nLet\u2019s make it <span class="outlined">black&nbsp;&amp;&nbsp;white.</span>',
 
-    'footer.line': 'GAME OVER — not yet. press',
+    'footer.copy': '© 2026 ehorty — made in b/w, no filters',
+    'footer.hint': 'psst — type',
 
-    'dock.title': 'jukebox — neon_loop.mp3'
+    'dock.title': 'noir.mp3'
   },
 
   ru: {
-    'nav.profile': 'профиль',
-    'nav.stages': 'уровни',
-    'nav.powers': 'сила',
-    'nav.coins': 'монеты',
+    'boot.tag': 'осн. 2026 · чёрно-белое издание',
+    'nav.who': 'кто',
+    'nav.work': 'работа',
+    'nav.stack': 'стек',
+    'nav.talk': 'связь',
 
-    'hero.lead': 'бэкенды, боты и маленькие автоматизации. брось монету — получишь уровень.',
-    'hero.start': 'начать игру',
-    'hero.coin': 'вставить монету',
+    'hero.eyebrow': '// питон-инженер — открыт к проектам',
+    'hero.lead': 'Боты, бэкенды и маленькие сломанные автоматизации. Отрисовано в чистом чёрно-белом, выпущено в 2026.',
+    'hero.work': 'смотреть работы',
+    'hero.talk': 'обсудить',
+    'hero.s1': '100% моно',
+    'hero.s2': 'без драмы',
+    'hero.m1': 'локация: где угодно',
+    'hero.m2': 'статус: открыт',
 
-    'profile.title': 'ПРОФИЛЬ ИГРОКА',
-    'profile.tag': 'класс python.Craftsman',
-    'profile.s1n': 'СКР',
-    'profile.s1d': 'быстрая сдача, без овертайма',
-    'profile.s2n': 'АТК',
-    'profile.s2d': 'бэкенды и боты',
-    'profile.s3n': 'УДАЧ',
-    'profile.s3d': 'отлаживает после полуночи',
+    'who.title': 'кто',
+    'who.big': 'Бэкенды с манерами, боты без навязчивости, автоматизация, которая просто работает. Если сработало дважды — я скриптую.',
+    'who.f1t': 'ядро',
+    'who.f1d': 'api · боты · автоматизация',
+    'who.f2t': 'стиль',
+    'who.f2d': 'типизировано · с тестами · чисто',
+    'who.f3t': 'вайб',
+    'who.f3d': 'чёрно-белое, без серого',
 
-    'stages.title': 'ВЫБЕРИ УРОВЕНЬ',
-    'stages.st1': 'приключение на html/css/js. два языка, один саундтрек. ты прямо внутри.',
-    'stages.st2': 'пока компилируется. варп-врата скоро откроются.',
-    'stages.lock': 'заблокировано — смотри рекорды',
+    'work.title': 'работа',
+    'work.p1': 'эта самая страница — монохромная, собрана вручную, два языка.',
+    'work.p2': 'сейчас компилируется. следи за обновлениями.',
+    'work.t2': 'скоро',
 
-    'powers.title': 'УСИЛЕНИЯ',
-    'powers.w': 'ОРУЖИЕ',
-    'powers.d': 'ПУЛЬТЫ',
-    'powers.s': 'ЩИТ',
-    'powers.b': 'БУСТ',
+    'stack.title': 'стек',
+    'stack.s1': 'бэкенд',
+    'stack.s2': 'боты',
+    'stack.s3': 'данные',
+    'stack.s4': 'инструменты',
 
-    'coins.title': 'РЕКОРДЫ',
-    'coins.lead': 'хочешь кооп-игру или рекорд побить? позвони владельцу аркады.',
+    'talk.title': 'связь',
+    'talk.big': 'Есть идея?\nСделаем в <span class="outlined">чёрно-белом.</span>',
 
-    'footer.line': 'GAME OVER — не сегодня. нажми',
+    'footer.copy': '© 2026 ehorty — сделано в ч/б, без фильтров',
+    'footer.hint': 'тсс, введи',
 
-    'dock.title': 'джубокс — neon_loop.mp3'
+    'dock.title': 'noir.mp3'
   }
 };
 
 const langToggle = document.getElementById('langToggle');
-const footerLine = document.querySelector('[data-i18n="footer.line"]');
+const hintEl = document.querySelector('.foot-hint');
 
 function applyLang(lang) {
   document.documentElement.lang = lang;
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const key = el.dataset.i18n;
-    if (i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
+    if (i18n[lang][key] !== undefined) {
+      if (key === 'talk.big') {
+        el.innerHTML = i18n[lang][key].replace(/\n/g, '<br>');
+      } else if (key === 'footer.hint') {
+        el.textContent = i18n[lang][key] + ' ';
+        const code = document.createElement('code');
+        code.textContent = 'swag';
+        el.appendChild(code);
+      } else {
+        el.textContent = i18n[lang][key];
+      }
+    }
   });
   langToggle.textContent = lang === 'ru' ? 'EN' : 'RU';
-  if (footerLine) {
-    const code = document.createElement('code');
-    code.textContent = 'C';
-    footerLine.appendChild(code);
-  }
 }
 
 let lang = localStorage.getItem('lang') || 'en';
@@ -116,14 +133,14 @@ langToggle.addEventListener('click', () => {
   applyLang(lang);
 });
 
-// ===== Theme =====
+// ===== Invert theme =====
 const root = document.documentElement;
-const themeToggle = document.getElementById('themeToggle');
+const invertBtn = document.getElementById('invertBtn');
 
 let theme = localStorage.getItem('theme') || 'dark';
 root.dataset.theme = theme;
 
-themeToggle.addEventListener('click', () => {
+invertBtn.addEventListener('click', () => {
   theme = theme === 'dark' ? 'light' : 'dark';
   root.dataset.theme = theme;
   localStorage.setItem('theme', theme);
@@ -131,65 +148,6 @@ themeToggle.addEventListener('click', () => {
 
 // ===== Icons =====
 if (window.lucide) lucide.createIcons();
-
-// ===== CRT screen drift (typing echo) =====
-const crtOut = document.getElementById('crtOut');
-const crtLines = [
-  [['c-dim', 'PRESS COIN · PLAY ▲']],
-  [['c-hi', 'PLAYER 1  '], ['c-dim', '  CREDIT 00']],
-  [['c-dim', 'loading python.library ... '], ['c-ok', 'OK']],
-  [['c-dim', 'loading coin.slot ......... '], ['c-ok', 'OK']],
-  [['c-dim', 'loading neon.shell ........ '], ['c-ok', 'OK']],
-  [['c-hi', '>>> READY PLAYER ONE']]
-];
-
-function writeCrt(idx) {
-  if (idx >= crtLines.length) {
-    crtOut.scrollTop = crtOut.scrollHeight;
-    return;
-  }
-  const row = document.createElement('span');
-  row.style.display = 'block';
-  row.style.whiteSpace = 'nowrap';
-  crtOut.appendChild(row);
-
-  let p = 0;
-  let ch = 0;
-  function step() {
-    if (p >= crtLines[idx].length) {
-      setTimeout(() => writeCrt(idx + 1), idx === 0 ? 900 : 260);
-      return;
-    }
-    const [cls, text] = crtLines[idx][p];
-    if (ch < text.length) {
-      const span = document.createElement('span');
-      span.className = cls;
-      span.textContent = text[ch++];
-      row.appendChild(span);
-      crtOut.scrollTop = crtOut.scrollHeight;
-      setTimeout(step, 14);
-    } else {
-      p++;
-      ch = 0;
-      setTimeout(step, 8);
-    }
-  }
-  step();
-}
-
-const crtBox = document.getElementById('crt');
-const crtIO = new IntersectionObserver((entries) => {
-  for (const e of entries) {
-    if (!e.isIntersecting) continue;
-    crtIO.unobserve(e.target);
-    if (!crtOut.dataset.typed) {
-      crtOut.dataset.typed = '1';
-      crtOut.innerHTML = '';
-      writeCrt(0);
-    }
-  }
-}, { threshold: 0.3 });
-crtIO.observe(crtBox);
 
 // ===== Reveal =====
 const reveal = new IntersectionObserver(
@@ -223,22 +181,25 @@ nav.querySelectorAll('a').forEach((a) =>
   })
 );
 
-// ===== Coin drop easter egg (press C) =====
-const coinToast = document.getElementById('coinToast');
-let toastTimer = null;
+// ===== Easter egg: type "swag" =====
+const swagToast = document.getElementById('swagToast');
+let swagBuffer = '';
+let swagTimer = null;
 
-function dropCoin() {
-  coinToast.textContent = 'COIN INSERTED · GOOD LUCK';
-  coinToast.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => coinToast.classList.remove('show'), 1600);
+function doSwag() {
+  swagToast.classList.add('show');
+  clearTimeout(swagTimer);
+  swagTimer = setTimeout(() => swagToast.classList.remove('show'), 1400);
 }
 
 document.addEventListener('keydown', (e) => {
-  if (e.key.toLowerCase() === 'c' && !e.ctrlKey && !e.metaKey && !e.altKey) {
-    const ev = e.target.tagName;
-    if (ev === 'INPUT' || ev === 'TEXTAREA') return;
-    dropCoin();
+  if (e.key.length !== 1) return;
+  const ev = e.target.tagName;
+  if (ev === 'INPUT' || ev === 'TEXTAREA') return;
+  swagBuffer = (swagBuffer + e.key.toLowerCase()).slice(-4);
+  if (swagBuffer === 'swag') {
+    swagBuffer = '';
+    doSwag();
   }
 });
 

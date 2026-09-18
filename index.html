@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ehorty — coin-operated python developer. insert coin to start.">
-  <title>NEON:ARCADE — Ehorty</title>
+  <meta name="description" content="Ehorty — python engineer. black. white. code.">
+  <title>Ehorty — B/W // 2026</title>
 
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Ehorty Arcade">
-  <meta property="og:title" content="NEON:ARCADE — Ehorty">
-  <meta property="og:description" content="a coin-operated python developer. insert coin to start.">
+  <meta property="og:site_name" content="Ehorty">
+  <meta property="og:title" content="Ehorty — B/W // 2026">
+  <meta property="og:description" content="python engineer. backends & bots & automation.">
   <meta property="og:url" content="https://ehorty.github.io">
   <meta property="og:image" content="https://github.com/ehorty.png">
   <meta property="og:image:width" content="460">
@@ -17,56 +17,47 @@
   <meta property="og:image:alt" content="Ehorty avatar">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="NEON:ARCADE — Ehorty">
-  <meta name="twitter:description" content="a coin-operated python developer. insert coin to start.">
+  <meta name="twitter:title" content="Ehorty — B/W // 2026">
+  <meta name="twitter:description" content="python engineer. backends & bots & automation.">
   <meta name="twitter:image" content="https://github.com/ehorty.png">
 
-  <meta name="theme-color" content="#080312">
+  <meta name="theme-color" content="#0c0c0c">
 
   <link rel="icon" type="image/png" href="https://github.com/ehorty.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
-<div class="chaser" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 
 <div id="boot" aria-hidden="true">
-  <div class="boot-sun"></div>
-  <div class="boot-box">
-    <p class="boot-brand">NEON<span class="dot">:</span>ARCADE</p>
-    <p class="boot-sub mono">arcade.bio v4.2 &middot; EHR</p>
-    <div class="boot-progress"><i></i></div>
-    <p class="boot-coin mono" id="bootCoin">INSERT COIN</p>
-    <p class="boot-blink mono" id="bootReady">PLAYER 1 :: READY</p>
+  <div class="boot-in">
+    <p class="boot-code mono" id="bootCode">EHR<span class="cursor">_</span></p>
+    <p class="boot-tag mono"><span data-i18n="boot.tag">est. 2026 · black &amp; white edition</span></p>
   </div>
 </div>
 
-<div class="sun-backdrop" aria-hidden="true"></div>
-<div class="grid-floor" aria-hidden="true"></div>
-<div class="scanlines" aria-hidden="true"></div>
-
 <header class="topbar">
-  <div class="wrap topbar-inner">
-    <a class="brand" href="#home" aria-label="home"><i data-lucide="gamepad-2" class="ic"></i> NEON<span class="dot">:</span>ARCADE</a>
-    <nav class="nav" id="nav">
-      <a href="#profile" data-i18n="nav.profile">profile</a>
-      <a href="#stages" data-i18n="nav.stages">stages</a>
-      <a href="#powers" data-i18n="nav.powers">powers</a>
-      <a href="#coins" data-i18n="nav.coins">coins</a>
+  <div class="shell topbar-in">
+    <a class="brand" href="#top"><span class="bw">E/</span> ehorty<span class="muted">_bw</span></a>
+
+    <nav class="nav mono" id="nav">
+      <a href="#who"><span data-i18n="nav.who">who</span></a>
+      <a href="#work"><span data-i18n="nav.work">work</span></a>
+      <a href="#stack"><span data-i18n="nav.stack">stack</span></a>
+      <a href="#talk"><span data-i18n="nav.talk">talk</span></a>
     </nav>
+
     <div class="top-actions">
-      <button id="themeToggle" class="icon-btn" aria-label="toggle theme" title="theme">
-        <i data-lucide="sun" class="i-sun"></i>
-        <i data-lucide="moon" class="i-moon"></i>
-      </button>
-      <button id="langToggle" class="lang-btn" aria-label="language">EN</button>
-      <button id="burger" class="icon-btn" aria-label="menu" aria-expanded="false">
+      <button id="langToggle" class="mini mono" aria-label="language">EN</button>
+      <button id="invertBtn" class="mini mono" aria-label="invert theme" title="invert"><i data-lucide="contrast" class="ic"></i></button>
+      <button id="burger" class="mini mono" aria-label="menu" aria-expanded="false">
         <i data-lucide="menu" class="i-menu"></i>
         <i data-lucide="x" class="i-close"></i>
       </button>
@@ -74,151 +65,137 @@
   </div>
 </header>
 
-<main class="wrap">
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track mono">
+    <span>swag 2k26</span><span>·</span><span>python engineer</span><span>·</span>
+    <span>code in black&amp;white</span><span>·</span><span>est. 2026</span><span>·</span>
+    <span>no grey areas</span><span>·</span><span>swag 2k26</span><span>·</span><span>python engineer</span><span>·</span>
+    <span>code in black&amp;white</span><span>·</span><span>est. 2026</span><span>·</span><span>no grey areas</span><span>·</span>
+  </div>
+</div>
 
-  <section id="home" class="hero reveal">
-    <p class="now-playing mono"><span class="tick">▶</span> NOW PLAYING <span class="tick">◀</span></p>
-    <h1 class="hero-title">EHORTY</h1>
-    <p class="hero-sub mono">the coin-operated <span class="chrome">python</span> developer</p>
-    <p class="hero-lead" data-i18n="hero.lead">backends, bots and tiny automations. drop a coin, get a level-up.</p>
+<main id="top">
+
+  <section class="hero reveal">
+    <p class="eyebrow mono" data-i18n="hero.eyebrow">// python engineer — open to projects</p>
+    <h1 class="big-title">E<span class="outlined">horty.</span></h1>
+    <p class="hero-lead" data-i18n="hero.lead">Bots, backends and tiny busted-automations. Rendered in pure black &amp; white, shipped in 2026.</p>
     <div class="hero-cta">
-      <a href="#stages" class="btn btn--gold" data-i18n="hero.start">start game <i data-lucide="arrow-right" class="ic"></i></a>
-      <a href="#coins" class="btn" data-i18n="hero.coin">insert coin <i data-lucide="circle-dollar-sign" class="ic"></i></a>
+      <a href="#work" class="btn btn--solid" data-i18n="hero.work">see the work <i data-lucide="arrow-down" class="ic"></i></a>
+      <a href="#talk" class="btn" data-i18n="hero.talk">let&rsquo;s talk</a>
+    </div>
+    <div class="hero-stamps">
+      <span class="stamp" data-i18n="hero.s1">100% mono</span>
+      <span class="stamp rot" data-i18n="hero.s2">no drama</span>
+    </div>
+    <div class="hero-rule"></div>
+    <div class="hero-meta mono">
+      <span data-i18n="hero.m1">location: anywhere</span>
+      <span data-i18n="hero.m2">status: open</span>
+      <span>uptime: <span class="on">online</span></span>
     </div>
   </section>
 
-  <section id="crt" class="reveal" aria-label="arcade screen">
-    <div class="crt">
-      <div class="crt-bars"><span></span><span></span><span></span><em class="mono">E://screen_01</em></div>
-      <pre class="crt-out mono" id="crtOut">
-<div class="row"><span class="c-dim">PRESS COIN · PLAY ▲</span></div>
-<div class="row"><span class="c-hi">PLAYER 1</span><span class="c-dim">    CREDIT 00</span></div>
-<div class="row"><span class="c-dim">loading python.library ... </span><span class="c-ok">OK</span></div>
-<div class="row"><span class="c-dim">loading coin.slot ......... </span><span class="c-ok">OK</span></div>
-<div class="row"><span class="c-dim">loading neon.shell ........ </span><span class="c-ok">OK</span></div>
-<div class="row"><span class="c-hi">>>> READY PLAYER ONE</span><span class="tcursor" aria-hidden="true"></span></div>
-      </pre>
+  <section id="who" class="reveal">
+    <div class="sec-head">
+      <span class="idx mono">01</span>
+      <h2 class="mono" data-i18n="who.title">who</h2>
     </div>
+    <p class="who-statement" data-i18n="who.big">Backends with manners, bots that don&rsquo;t nag, automation that just works. If it runs twice — I script it.</p>
+    <dl class="facts">
+      <div class="fact mono"><dt data-i18n="who.f1t">core</dt><dd data-i18n="who.f1d">api · bots · automation</dd><span class="fact-n">001</span></div>
+      <div class="fact mono"><dt data-i18n="who.f2t">style</dt><dd data-i18n="who.f2d">typed · tested · tidy</dd><span class="fact-n">002</span></div>
+      <div class="fact mono"><dt data-i18n="who.f3t">vibe</dt><dd data-i18n="who.f3d">black &amp; white, zero grey</dd><span class="fact-n">003</span></div>
+    </dl>
   </section>
 
-  <section id="profile" class="reveal">
-    <div class="zone-head">
-      <h2 class="mono">1UP</h2>
-      <span class="zone-title mono" data-i18n="profile.title">PLAYER PROFILE</span>
-    </div>
-    <div class="profile-card">
-      <div class="pc-top">
-        <span class="mono pc-tag" data-i18n="profile.tag">class python.Craftsman</span>
-        <span class="mono pc-id">ID:EHR-001</span>
-      </div>
-      <dl class="stats">
-        <div class="stat">
-          <dt class="mono" data-i18n="profile.s1n">SPD</dt>
-          <dd data-i18n="profile.s1d">fast delivery, no crunch</dd>
-        </div>
-        <div class="stat">
-          <dt class="mono" data-i18n="profile.s2n">ATK</dt>
-          <dd data-i18n="profile.s2d">backends &amp; bots</dd>
-        </div>
-        <div class="stat">
-          <dt class="mono" data-i18n="profile.s3n">LUK</dt>
-          <dd data-i18n="profile.s3d">debugs after midnight</dd>
-        </div>
-      </dl>
-    </div>
-  </section>
-
-  <section id="stages" class="reveal">
-    <div class="zone-head">
-      <h2 class="mono">STAGE</h2>
-      <span class="zone-title mono" data-i18n="stages.title">SELECT YOUR STAGE</span>
+  <section id="work" class="reveal">
+    <div class="sec-head">
+      <span class="idx mono">02</span>
+      <h2 class="mono" data-i18n="work.title">work</h2>
     </div>
 
-    <div class="stage-row">
-      <div class="stage-card">
-        <div class="sc-notch mono">CARTRIDGE-01</div>
+    <ul class="work-list">
+      <li class="work-item">
         <a href="https://github.com/ehorty/ehorty.github.io" target="_blank" rel="noopener">
-          <h3 class="mono">stage_01 // neon_home</h3>
-          <p class="mono" data-i18n="stages.st1">a playable adventure in html/css/js. two languages, one soundtrack. you are inside it.</p>
-          <div class="sc-files mono">roms: html · css · js</div>
+          <span class="wi-idx mono">001</span>
+          <span class="wi-main">
+            <span class="wi-name">ehorty.github.io <i data-lucide="arrow-up-right" class="ic"></i></span>
+            <span class="wi-desc mono" data-i18n="work.p1">this very page — monochrome, built by hand, two languages.</span>
+          </span>
+          <span class="wi-tag mono">html/css/js</span>
         </a>
-      </div>
-      <div class="stage-card locked">
-        <div class="sc-notch mono">CARTRIDGE-??</div>
-        <div>
-          <h3 class="mono">stage_?? // secret_toolbox</h3>
-          <p class="mono" data-i18n="stages.st2">currently compiling. warp gate opening soon.</p>
-          <div class="sc-files mono" data-i18n="stages.lock">🔒 locked — see high scores</div>
-        </div>
-      </div>
-    </div>
+      </li>
+      <li class="work-item">
+        <a href="https://github.com/ehorty" target="_blank" rel="noopener">
+          <span class="wi-idx mono">002</span>
+          <span class="wi-main">
+            <span class="wi-name">secret_toolbox <i data-lucide="arrow-up-right" class="ic"></i></span>
+            <span class="wi-desc mono" data-i18n="work.p2">currently compiling. watch this space.</span>
+          </span>
+          <span class="wi-tag mono" data-i18n="work.t2">soon</span>
+        </a>
+      </li>
+    </ul>
   </section>
 
-  <section id="powers" class="reveal">
-    <div class="zone-head">
-      <h2 class="mono">ITEMS</h2>
-      <span class="zone-title mono" data-i18n="powers.title">POWER-UPS</span>
+  <section id="stack" class="reveal">
+    <div class="sec-head">
+      <span class="idx mono">03</span>
+      <h2 class="mono" data-i18n="stack.title">stack</h2>
     </div>
-
-    <div class="power-grid">
-      <div class="power-cell">
-        <p class="plabel mono" data-i18n="powers.w">WEAPONS</p>
-        <div class="chips">
-          <span class="chip hot">Python</span><span class="chip">FastAPI</span><span class="chip">Django</span><span class="chip">Flask</span>
-        </div>
+    <dl class="stack">
+      <div class="stack-row mono">
+        <dt data-i18n="stack.s1">backend</dt>
+        <dd>Python / FastAPI / Django / Flask / asyncio</dd>
       </div>
-      <div class="power-cell">
-        <p class="plabel mono" data-i18n="powers.d">REMOTE</p>
-        <div class="chips">
-          <span class="chip">aiogram</span><span class="chip">discord.py</span>
-        </div>
+      <div class="stack-row mono">
+        <dt data-i18n="stack.s2">bots</dt>
+        <dd>aiogram / discord.py</dd>
       </div>
-      <div class="power-cell">
-        <p class="plabel mono" data-i18n="powers.s">SHIELD</p>
-        <div class="chips">
-          <span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Docker</span><span class="chip">SQLite</span>
-        </div>
+      <div class="stack-row mono">
+        <dt data-i18n="stack.s3">data</dt>
+        <dd>PostgreSQL / Redis / SQLite / pandas</dd>
       </div>
-      <div class="power-cell">
-        <p class="plabel mono" data-i18n="powers.b">BOOST</p>
-        <div class="chips">
-          <span class="chip">asyncio</span><span class="chip">pytest</span><span class="chip">Linux</span><span class="chip">Git</span>
-        </div>
+      <div class="stack-row mono">
+        <dt data-i18n="stack.s4">tools</dt>
+        <dd>Docker / Linux / Git / pytest</dd>
       </div>
-    </div>
+    </dl>
   </section>
 
-  <section id="coins" class="reveal">
-    <div class="zone-head">
-      <h2 class="mono">COINS</h2>
-      <span class="zone-title mono" data-i18n="coins.title">HIGH SCORES</span>
+  <section id="talk" class="reveal">
+    <div class="sec-head">
+      <span class="idx mono">04</span>
+      <h2 class="mono" data-i18n="talk.title">talk</h2>
     </div>
-    <p class="coins-lead" data-i18n="coins.lead">want a co-op run or a score to beat? ring the arcade owner.</p>
-    <div class="coin-row">
-      <a class="coin-link" href="https://t.me/Ehortyy" target="_blank" rel="noopener"><i data-lucide="send" class="ic"></i>Telegram<i data-lucide="arrow-up-right" class="ic ext"></i></a>
-      <a class="coin-link" href="https://github.com/ehorty" target="_blank" rel="noopener"><i data-lucide="github" class="ic"></i>GitHub<i data-lucide="arrow-up-right" class="ic ext"></i></a>
-      <a class="coin-link" href="https://discord.com/users/000000000000000000" target="_blank" rel="noopener"><i data-lucide="gamepad-2" class="ic"></i>Discord<i data-lucide="arrow-up-right" class="ic ext"></i></a>
+    <p class="talk-big" data-i18n="talk.big">Got an idea?<br>Let&rsquo;s make it <span class="outlined">black&nbsp;&amp;&nbsp;white.</span></p>
+    <div class="talk-links mono">
+      <a href="https://t.me/Ehortyy" target="_blank" rel="noopener">Telegram <i data-lucide="arrow-up-right" class="ic"></i></a>
+      <a href="https://github.com/ehorty" target="_blank" rel="noopener">GitHub <i data-lucide="arrow-up-right" class="ic"></i></a>
+      <a href="https://discord.com/users/000000000000000000" target="_blank" rel="noopener">Discord <i data-lucide="arrow-up-right" class="ic"></i></a>
     </div>
   </section>
 
   <footer class="reveal">
-    <p class="mono" data-i18n="footer.line">GAME OVER — not yet. press <code>C</code> to drop another coin.</p>
+    <p class="mono" data-i18n="footer.copy">© 2026 ehorty — made in b/w, no filters</p>
+    <p class="mono foot-hint" data-i18n="footer.hint">psst — type <code>swag</code></p>
   </footer>
 
 </main>
 
-<div id="coinToast" class="coin-toast mono" aria-hidden="true"></div>
+<div id="swagToast" class="swag-toast mono">SWAG+1</div>
 
 <div id="dock" class="hidden" aria-label="music">
   <img id="dockCover" src="music/cover.jpg" alt="" loading="lazy" onerror="this.classList.add('noimg')">
   <div class="dock-body">
     <div class="dock-top">
-      <button id="dockPlay" class="icon-btn dk-play" aria-label="play or pause">
+      <button id="dockPlay" class="play mono" aria-label="play or pause">
         <i data-lucide="play" class="i-play"></i>
         <i data-lucide="pause" class="i-pause"></i>
       </button>
       <div class="dock-meta">
-        <span id="dockTitle" class="mono" data-i18n="dock.title">jukebox — neon_loop.mp3</span>
+        <span id="dockTitle" class="mono" data-i18n="dock.title">noir.mp3</span>
         <input id="dockSeek" type="range" min="0" max="100" value="0" step="0.1" aria-label="seek">
       </div>
     </div>
