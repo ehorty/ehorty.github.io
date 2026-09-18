@@ -317,6 +317,31 @@ section { padding: var(--pad) 0; }
   line-height: 1.22;
   max-width: 54rem;
 }
+.note {
+  margin-top: 2rem;
+  max-width: 54rem;
+  padding: 1.6rem 1.7rem;
+  border-left: 3px solid var(--accent);
+  background: var(--card);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.note-text {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+.note-sign {
+  display: block;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: .95rem;
+}
+.note-sign b {
+  color: var(--accent);
+  font-family: var(--disp);
+  font-weight: 700;
+  letter-spacing: .04em;
+}
 
 /* ===== Cards ===== */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; margin-top: 2.6rem; }

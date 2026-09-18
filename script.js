@@ -20,6 +20,7 @@
       'hero.now': 'now spinning: async python, deep cuts only',
       'vibe.title': 'the vibe',
       'vibe.big': 'Clean code, clean cuts, zero grey areas. If it runs twice — it gets scripted.',
+      'vibe.word': 'I\u2019m Ehorty, a Python developer. Backend, automation and integrations are my thing. I write maintainable code and care about clear architecture. Comfortable with APIs, bots, scraping and databases. I automate the boring stuff and keep it simple where I can. Easy to work with: no ego, no drama, no fuss. Happy to discuss tasks, listen to feedback and own the result. Open to interesting projects.',
       'vibe.c1t': 'Clean',
       'vibe.c1d': 'Typed, tested, tidy. Code you can read next Monday.',
       'vibe.c2t': 'Swift',
@@ -56,6 +57,7 @@
       'hero.now': 'сейчас в эфире: async python, только глубь',
       'vibe.title': 'вайб',
       'vibe.big': 'Чистый код, чистые резы, ноль серых зон. Запустилось дважды — значит, скриптуем.',
+      'vibe.word': 'Я Ehorty, Python-разработчик. Специализируюсь на backend-разработке, автоматизации и интеграциях. Пишу поддерживаемый код и ценю понятную архитектуру. Умею работать с API, ботами, парсингом и базами данных. Автоматизирую рутину и не усложняю там, где можно сделать проще. Комфортный в работе человек: без пафоса, токсичности и лишней суеты. Спокойно обсуждаю задачи, слышу обратную связь и отвечаю за результат. Открыт к интересным проектам.',
       'vibe.c1t': 'Чисто',
       'vibe.c1d': 'Типизировано, протестировано, опрятно. Код, который читается в понедельник.',
       'vibe.c2t': 'Быстро',
@@ -107,6 +109,8 @@
         const code = document.createElement('code');
         code.textContent = 'swag';
         el.appendChild(code);
+      } else if (key === 'link.big' || key === 'vibe.word') {
+        el.innerHTML = val;
       } else {
         el.innerHTML = val;
       }
