@@ -445,14 +445,18 @@ a.drop:hover .drop-top .ic { transform: translate(3px, -3px); color: var(--accen
 /* ===== Footer ===== */
 footer {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
   gap: .8rem;
   padding: 2rem 0 4rem;
   border-top: 1px solid var(--line);
 }
 footer p { font-size: .8rem; color: var(--muted); }
+.foot-mid {
+  font-size: .9rem;
+}
 .foot-hint code {
   color: var(--accent);
   border: 1px solid var(--accent);
