@@ -1,109 +1,110 @@
-// ===== Preloader (min 1 second) =====
-const preloader = document.getElementById('preloader');
-const gate = document.getElementById('gate');
+// ===== Boot screen =====
+const boot = document.getElementById('boot');
 document.body.classList.add('loading');
 
-const minDelay = new Promise((resolve) => setTimeout(resolve, 1000));
+const bootMin = new Promise((r) => setTimeout(r, 1100));
 const pageLoaded = document.readyState === 'complete'
   ? Promise.resolve()
-  : new Promise((resolve) => window.addEventListener('load', resolve, { once: true }));
+  : new Promise((r) => window.addEventListener('load', r, { once: true }));
 
-Promise.all([minDelay, pageLoaded]).then(() => {
-  preloader.classList.add('done');
+Promise.all([bootMin, pageLoaded]).then(() => {
+  boot.classList.add('done');
   document.body.classList.remove('loading');
-  gate.classList.add('ready');
 });
 
-// ===== Localization (ru / en) =====
+// ===== Localization =====
 const i18n = {
   en: {
-    'hero.kicker': 'python engineer · open to projects',
-    'hero.lead': "Python engineer who builds backends, bots and little automations. My code reads well, runs on time and brushes its teeth before bed.",
-    'hero.projects': 'see projects',
-    'hero.contact': 'contact',
-
     'nav.about': 'about',
-    'about.p1': "I'm Ehorty, a Python engineer. By day (and sometimes by night) I build backends, Telegram bots and tiny automations that quietly handle the boring parts of life. I like code that's easy to read tomorrow and behaves politely.",
-    'about.p2': "when I'm away from the keyboard, I'm usually cooking a personal project, listening to music, or chasing a good idea before it runs off.",
-
-    'about.f1t': 'focus',
-    'about.f1d': 'backends · bots · automation',
-    'about.f2t': 'status',
-    'about.f2d': 'open to projects & ideas',
-    'about.f3t': 'motto',
-    'about.f3d': 'if it runs twice, script it',
-
     'nav.now': 'now',
-    'now.text': 'polishing my own toolbox and going deeper into async python. public projects are on the way.',
-    'progress.label': 'cooking something',
-
-    'nav.projects': 'projects',
-    'projects.site': "the page you're reading right now. handcrafted, playful, with a music player and two languages.",
-    'projects.more': 'more public projects are cooking in the oven — stay tuned.',
-
     'nav.stack': 'stack',
+    'nav.deploy': 'projects',
+    'nav.contact': 'contact',
+
+    'hero.kicker': 'python engineer · open to projects',
+    'hero.lead': 'Bots, APIs and small automations — written in Python, styled in neon. Clean code, timely delivery, zero drama.',
+    'hero.deploy': 'view projects',
+    'hero.hire': 'hire me',
+
+    'type.title': '~/ehorty — terminal',
+
+    'about.lede': 'Python engineer who treats code like a craft — readable, tested, and pleasant to work with.',
+    'about.f1t': 'core',
+    'about.f1d': 'API · bots · automation',
+    'about.f2t': 'style',
+    'about.f2d': 'clean, typed, tested',
+    'about.f3t': 'motto',
+    'about.f3d': 'ship it twice alone? script it.',
+    'about.f4t': 'now',
+    'about.f4d': 'deep-diving asyncio',
+
+    'now.status': 'digging into async python',
+    'now.text': 'polishing my personal toolbox and going deeper into asyncio. public repositories are coming soon.',
+    'now.label': 'toolbox progress',
+
     'stack.backend': 'backend',
     'stack.bots': 'bots',
-    'stack.database': 'database',
+    'stack.data': 'data',
     'stack.tools': 'tools',
-    'stack.other': 'other',
 
-    'nav.contact': 'contact',
-    'contact.lead': 'have a project, an idea, or just want to say hi? my inbox is always open.',
+    'deploy.site': 'this very page — hand-built, bilingual, with a neon soundtrack.',
+    'deploy.more': 'more public repos are compiling in the background — watch this space.',
 
-    'footer.text': '© 2026 ehorty · made with 🐍 and patience',
+    'contact.lede': 'Have a project, an idea, or just want to vibe? My inbox is open 24/7.',
 
-    'player.title': 'Music?',
+    'footer.copy': '© 2026 ehorty · crafted in neon',
+    'footer.hint': 'psst — press',
 
-    'gate.title': 'tap to enter',
-    'gate.note': "there's music playing here — turn it down in the player at the bottom left."
+    'dock.title': 'neon_loop.mp3'
   },
 
   ru: {
-    'hero.kicker': 'питон-инженер · открыт к проектам',
-    'hero.lead': 'Python-инженер: бэкенды, боты и маленькие автоматизации. Мой код понятен, всё делает вовремя и чистит зубы перед сном.',
-    'hero.projects': 'проекты',
-    'hero.contact': 'контакты',
-
     'nav.about': 'обо мне',
-    'about.p1': 'Я Ehorty — python-инженер. Днём (а иногда и ночью) собираю бэкенды, телеграм-ботов и маленькие автоматизации, которые тихо берут на себя скучную часть жизни. Нравится код, который легко читается завтра и ведёт себя прилично.',
-    'about.p2': 'когда отхожу от клавиатуры — довожу до ума личный проект, слушаю музыку или бегу за хорошей идеей, пока она не сбежала.',
-
-    'about.f1t': 'фокус',
-    'about.f1d': 'бэкенды · боты · автоматизация',
-    'about.f2t': 'статус',
-    'about.f2d': 'открыт к проектам и идеям',
-    'about.f3t': 'девиз',
-    'about.f3d': 'что запускается дважды — скриптуется',
-
     'nav.now': 'щас',
-    'now.text': 'довожу до ума свою обвязку и копаю глубже в async-python. публичные проекты скоро появятся.',
-    'progress.label': 'что-то готовлю',
-
-    'nav.projects': 'проекты',
-    'projects.site': 'страница, которую ты сейчас читаешь. собрана вручную: весёлая, с музыкой и двумя языками.',
-    'projects.more': 'в печи ещё проекты — следи за обновлениями.',
-
     'nav.stack': 'стек',
+    'nav.deploy': 'проекты',
+    'nav.contact': 'контакты',
+
+    'hero.kicker': 'питон-инженер · открыт к проектам',
+    'hero.lead': 'Боты, API и небольшие автоматизации — на Python, в неоновом стиле. Чистый код, сроки, ноль драмы.',
+    'hero.deploy': 'смотреть проекты',
+    'hero.hire': 'нанять меня',
+
+    'type.title': '~/ehorty — терминал',
+
+    'about.lede': 'Python-инженер, который относится к коду как к ремеслу — читабельно, с тестами и удовольствием.',
+    'about.f1t': 'ядро',
+    'about.f1d': 'API · боты · автоматизация',
+    'about.f2t': 'стиль',
+    'about.f2d': 'чисто, типизировано, с тестами',
+    'about.f3t': 'девиз',
+    'about.f3d': 'запускал дважды? скриптуй.',
+    'about.f4t': 'щас',
+    'about.f4d': 'копаю глубже в asyncio',
+
+    'now.status': 'копаюсь в async python',
+    'now.text': 'довожу до ума личный тулбокс и углубляюсь в asyncio. публичные репозитории скоро появятся.',
+    'now.label': 'прогресс тулбокса',
+
     'stack.backend': 'бэкенд',
     'stack.bots': 'боты',
-    'stack.database': 'базы данных',
+    'stack.data': 'данные',
     'stack.tools': 'инструменты',
-    'stack.other': 'прочее',
 
-    'nav.contact': 'контакты',
-    'contact.lead': 'есть проект, идея или просто хочется поздороваться? я всегда на связи.',
+    'deploy.site': 'эта самая страница — собрана вручную, на двух языках, с неоновым саундтреком.',
+    'deploy.more': 'ещё публичные репозитории компилируются в фоне — следи за обновлениями.',
 
-    'footer.text': '© 2026 ehorty · сделано с 🐍 и терпением',
+    'contact.lede': 'Есть проект, идея или просто хочется поболтать? Инбокс открыт 24/7.',
 
-    'player.title': 'Музыка?',
+    'footer.copy': '© 2026 ehorty · сделано в неоне',
+    'footer.hint': 'тсс, нажми',
 
-    'gate.title': 'нажми, чтобы войти',
-    'gate.note': 'тут играет музыка — громкость можно убрать в плеере слева снизу.'
+    'dock.title': 'neon_loop.mp3'
   }
 };
 
 const langToggle = document.getElementById('langToggle');
+const bareHints = document.querySelectorAll('[data-i18n="footer.hint"]');
 
 function applyLang(lang) {
   document.documentElement.lang = lang;
@@ -111,7 +112,12 @@ function applyLang(lang) {
     const key = el.dataset.i18n;
     if (i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
   });
-  langToggle.textContent = lang === 'ru' ? 'en' : 'ru';
+  langToggle.textContent = lang === 'ru' ? 'EN' : 'RU';
+  bareHints.forEach((h) => {
+    const code = document.createElement('code');
+    code.textContent = 'alt + w';
+    h.appendChild(code);
+  });
 }
 
 let lang = localStorage.getItem('lang') || 'en';
@@ -123,141 +129,171 @@ langToggle.addEventListener('click', () => {
   applyLang(lang);
 });
 
-// ===== Theme toggle (dark synthwave is default) =====
+// ===== Theme toggle =====
 const root = document.documentElement;
-const toggle = document.getElementById('themeToggle');
+const themeToggle = document.getElementById('themeToggle');
 
 let theme = localStorage.getItem('theme') || 'dark';
 root.dataset.theme = theme;
 
-toggle.addEventListener('click', () => {
+themeToggle.addEventListener('click', () => {
   theme = theme === 'dark' ? 'light' : 'dark';
   root.dataset.theme = theme;
   localStorage.setItem('theme', theme);
 });
 
+// ===== Lucide icons =====
+if (window.lucide) lucide.createIcons();
+
+// ===== Terminal typewriter =====
+const typeOut = document.getElementById('typeOut');
+
+const script = [
+  [['c-mut', '> '], ['c-gold', 'python'], ['c-mut', ' run.py']],
+  [['c-cyan', 'boot'], ['c-mut', ': importing '], ['c-gold', 'ehorty'], ['c-mut', ' ... '], ['c-cyan', 'ok']],
+  [['c-cyan', 'api'], ['c-mut', '  : loading backends ... '], ['c-cyan', 'ok']],
+  [['c-cyan', 'bots'], ['c-mut', ' : loading handlers ... '], ['c-cyan', 'ok']],
+  [['c-cyan', 'style'], ['c-mut', ': why so clean? '], ['c-cyan', 'tested']],
+  [['c-gold', 'status'], ['c-mut', ' : '], ['c-cyan', 'ONLINE']]
+];
+
+function typeLine(parts, lineIndex, done) {
+  if (lineIndex >= script.length) { done(); return; }
+  const line = document.createElement('div');
+  typeOut.appendChild(line);
+  let partIndex = 0;
+  let charIndex = 0;
+
+  function step() {
+    if (partIndex >= parts.length) {
+      if (lineIndex < script.length - 1) {
+        setTimeout(() => typeLine(script[lineIndex + 1], lineIndex + 1, done), 260);
+      } else {
+        cursor(); done();
+      }
+      return;
+    }
+    const [cls, text] = parts[partIndex];
+    if (charIndex < text.length) {
+      const span = line.querySelector('.seg:last-child');
+      let seg = span && span.dataset.cls === cls ? span : null;
+      if (!seg) {
+        seg = document.createElement('span');
+        seg.className = 'seg';
+        seg.dataset.cls = cls;
+        seg.classList.add(cls);
+        line.appendChild(seg);
+      }
+      seg.textContent += text[charIndex++];
+      setTimeout(step, 26);
+    } else {
+      partIndex++; charIndex = 0;
+      setTimeout(step, 6);
+    }
+  }
+  step();
+}
+
+let cursorEl = null;
+function cursor() {
+  const line = document.createElement('div');
+  typeOut.appendChild(line);
+  const span = document.createElement('span');
+  span.classList.add('tcursor');
+  line.appendChild(span);
+  cursorEl = span;
+}
+
+const typeStarted = sessionStorage.getItem('typed') === '1';
+const io = new IntersectionObserver((entries) => {
+  for (const e of entries) {
+    if (!e.isIntersecting) continue;
+    io.unobserve(e.target);
+    if (!typeStarted && !typeOut.hasChildNodes()) {
+      typeLine(script[0], 0, () => { sessionStorage.setItem('typed', '1'); });
+    }
+  }
+}, { threshold: 0.3 });
+io.observe(document.querySelector('.type-card'));
+
 // ===== Reveal on scroll =====
-const observer = new IntersectionObserver(
+const reveal = new IntersectionObserver(
   (entries) => {
     for (const entry of entries) {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+        reveal.unobserve(entry.target);
       }
     }
   },
   { threshold: 0.12 }
 );
+document.querySelectorAll('.reveal').forEach((el) => reveal.observe(el));
 
-document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-
-// ===== Lucide icons =====
-if (window.lucide) lucide.createIcons();
-
-// ===== Burger menu =====
+// ===== Burger =====
 const burger = document.getElementById('burger');
-const navLinks = document.getElementById('navLinks');
+const nav = document.getElementById('nav');
 
 burger.addEventListener('click', () => {
-  const open = navLinks.classList.toggle('open');
+  const open = nav.classList.toggle('open');
   burger.classList.toggle('open', open);
   burger.setAttribute('aria-expanded', String(open));
 });
 
-navLinks.querySelectorAll('a').forEach((a) =>
+nav.querySelectorAll('a').forEach((a) =>
   a.addEventListener('click', () => {
-    navLinks.classList.remove('open');
+    nav.classList.remove('open');
     burger.classList.remove('open');
     burger.setAttribute('aria-expanded', 'false');
   })
 );
 
-// ===== Live status from status.js =====
-if (window.MY_STATUS) {
-  const statusEl = document.getElementById('myStatus');
-  if (statusEl && window.MY_STATUS.status) statusEl.textContent = window.MY_STATUS.status;
-
-  if (window.MY_STATUS.title) {
-    const setTitle = () => {
-      const key = document.documentElement.lang;
-      document.title = (window.MY_STATUS.title[key] || window.MY_STATUS.title.en) + ' — ehorty';
-    };
-    setTitle();
-    langToggle.addEventListener('click', () => setTimeout(setTitle, 0));
-  }
-}
-
-// ===== Party mode (type "python") =====
-const PYP_WORD = 'python';
-let pypBuffer = '';
-
-function toggleParty() {
-  document.body.classList.toggle('party');
-}
-
+// ===== Easter egg: alt + w =====
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && document.body.classList.contains('party')) {
-    document.body.classList.remove('party');
-    return;
-  }
-  if (e.key.length !== 1) return;
-  pypBuffer = (pypBuffer + e.key.toLowerCase()).slice(-PYP_WORD.length);
-  if (pypBuffer === PYP_WORD) {
-    pypBuffer = '';
-    toggleParty();
+  if (e.key.toLowerCase() === 'w' && (e.altKey || e.metaKey)) {
+    e.preventDefault();
+    document.body.classList.add('neon-flash');
+    setTimeout(() => document.body.classList.remove('neon-flash'), 1400);
   }
 });
 
-// ===== Music player =====
+// ===== Music dock =====
 const audio = new Audio('music/track.mp3');
 audio.loop = true;
 audio.preload = 'auto';
 
-const player = document.getElementById('player');
-const plToggle = document.getElementById('plToggle');
-const plSeek = document.getElementById('plSeek');
-const plVol = document.getElementById('plVol');
-const plTime = document.getElementById('plTime');
+const dock = document.getElementById('dock');
+const dockPlay = document.getElementById('dockPlay');
+const dockSeek = document.getElementById('dockSeek');
+const dockVol = document.getElementById('dockVol');
+const dockTime = document.getElementById('dockTime');
 
 const DEFAULT_VOL = 0.05;
-
 let audioCtx = null;
 let gainNode = null;
-let musicStarted = false;
+let started = false;
 
 function fmt(s) {
   if (!isFinite(s)) return '0:00';
-
   const m = Math.floor(s / 60);
   const sec = Math.floor(s % 60);
-
   return m + ':' + String(sec).padStart(2, '0');
 }
 
 function initWebAudio() {
   if (audioCtx) return;
-
   const Ctx = window.AudioContext || window.webkitAudioContext;
-  if (!Ctx) {
-    audio.volume = DEFAULT_VOL;
-    return;
-  }
-
+  if (!Ctx) { audio.volume = DEFAULT_VOL; return; }
   try {
     audioCtx = new Ctx();
-
     const source = audioCtx.createMediaElementSource(audio);
-
     gainNode = audioCtx.createGain();
     gainNode.gain.value = DEFAULT_VOL;
-
     source.connect(gainNode);
     gainNode.connect(audioCtx.destination);
-
     audio.volume = 1;
-  } catch (e) {
-    console.warn('Web Audio initialization failed:', e);
-
+  } catch (err) {
+    console.warn('Web Audio init failed:', err);
     audioCtx = null;
     gainNode = null;
     audio.volume = DEFAULT_VOL;
@@ -265,78 +301,48 @@ function initWebAudio() {
 }
 
 function setVolume(value) {
-  const volume = Math.min(1, Math.max(0, Number(value)));
-
-  if (gainNode) {
-    gainNode.gain.setTargetAtTime(volume, audioCtx.currentTime, 0.01);
-  } else {
-    audio.volume = volume;
-  }
+  const v = Math.min(1, Math.max(0, Number(value)));
+  if (gainNode) gainNode.gain.setTargetAtTime(v, audioCtx.currentTime, 0.01);
+  else audio.volume = v;
 }
 
-gate.addEventListener('click', async () => {
-  gate.classList.add('gone');
-  player.classList.remove('hidden');
+function tryStart() {
+  if (started) return;
+  started = true;
+  dock.classList.remove('hidden');
+  initWebAudio();
+  if (audioCtx?.state === 'suspended') audioCtx.resume();
+  setVolume(dockVol.value || DEFAULT_VOL);
+  audio.play().catch(() => {});
+  document.removeEventListener('pointerdown', tryStart);
+  document.removeEventListener('keydown', tryStart);
+}
 
-  if (!musicStarted) {
-    musicStarted = true;
+document.addEventListener('pointerdown', tryStart);
+document.addEventListener('keydown', tryStart);
 
-    initWebAudio();
-
-    if (audioCtx?.state === 'suspended') {
-      await audioCtx.resume();
-    }
-
-    setVolume(plVol.value || DEFAULT_VOL);
-
-    try {
-      await audio.play();
-    } catch (e) {
-      console.warn('Audio playback failed:', e);
-    }
-  }
-});
-
-plToggle.addEventListener('click', async () => {
+dockPlay.addEventListener('click', () => {
   if (audio.paused) {
-    if (audioCtx?.state === 'suspended') {
-      await audioCtx.resume();
-    }
-
-    await audio.play().catch(() => {});
+    if (audioCtx?.state === 'suspended') audioCtx.resume();
+    audio.play().catch(() => {});
   } else {
     audio.pause();
   }
 });
 
-audio.addEventListener('play', () => {
-  player.classList.add('playing');
-});
-
-audio.addEventListener('pause', () => {
-  player.classList.remove('playing');
-});
+audio.addEventListener('play', () => dock.classList.add('playing'));
+audio.addEventListener('pause', () => dock.classList.remove('playing'));
 
 audio.addEventListener('timeupdate', () => {
-  if (!plSeek.matches(':active')) {
-    plSeek.value = audio.duration
-      ? (audio.currentTime / audio.duration) * 100
-      : 0;
+  if (!dockSeek.matches(':active')) {
+    dockSeek.value = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
   }
-
-  plTime.textContent = fmt(audio.currentTime);
+  dockTime.textContent = fmt(audio.currentTime);
 });
 
-plSeek.addEventListener('input', () => {
-  if (audio.duration) {
-    audio.currentTime = (plSeek.value / 100) * audio.duration;
-  }
+dockSeek.addEventListener('input', () => {
+  if (audio.duration) audio.currentTime = (dockSeek.value / 100) * audio.duration;
 });
 
-plVol.addEventListener('input', () => {
-  setVolume(plVol.value);
-});
-
-plVol.addEventListener('change', () => {
-  setVolume(plVol.value);
-});
+dockVol.addEventListener('input', () => setVolume(dockVol.value));
+dockVol.addEventListener('change', () => setVolume(dockVol.value));

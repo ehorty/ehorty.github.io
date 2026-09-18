@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ehorty — Python engineer. Backends, bots and automation with a smile.">
-  <title>Ehorty — Python Engineer 🐍</title>
+  <meta name="description" content="Ehorty — python engineer. Neon craft: backends, bots, automation.">
+  <title>Ehorty — neon python engineer</title>
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ehorty.dev">
-  <meta property="og:title" content="Ehorty — Python Engineer">
-  <meta property="og:description" content="Python engineer. Backends, bots and automation with a smile.">
+  <meta property="og:title" content="Ehorty — Neon Python Engineer">
+  <meta property="og:description" content="backends, bots and small automations. built in neon.">
   <meta property="og:url" content="https://ehorty.github.io">
   <meta property="og:image" content="https://github.com/ehorty.png">
   <meta property="og:image:width" content="460">
@@ -17,180 +17,202 @@
   <meta property="og:image:alt" content="Ehorty avatar">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Ehorty — Python Engineer">
-  <meta name="twitter:description" content="Python engineer. Backends, bots and automation with a smile.">
+  <meta name="twitter:title" content="Ehorty — Neon Python Engineer">
+  <meta name="twitter:description" content="backends, bots and small automations. built in neon.">
   <meta name="twitter:image" content="https://github.com/ehorty.png">
 
-  <meta name="theme-color" content="#130e2c">
+  <meta name="theme-color" content="#0d0620">
 
   <link rel="icon" type="image/png" href="https://github.com/ehorty.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Chakra+Petch:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
-<div id="preloader" aria-hidden="true">
-  <div class="pre-inner">
-    <p class="pre-logo">ehorty<span>.dev</span></p>
-    <div class="pre-bar"><span></span></div>
-    <p class="pre-hint">warming up the python <span class="pre-snake">🐍</span><span class="pre-dots"></span></p>
+<div id="boot" aria-hidden="true">
+  <div class="boot-grid"></div>
+  <div class="boot-shell">
+    <p class="boot-logo">E://Ehorty</p>
+    <div class="boot-line muted">intializing neural shell <span class="spinner">▮</span></div>
+    <div class="boot-progress"><i></i></div>
   </div>
 </div>
 
-<div id="gate" aria-hidden="true">
-  <div class="gate-inner">
-    <div class="gate-emoji">🎧</div>
-    <p class="gate-title" data-i18n="gate.title">tap to enter</p>
-    <p class="gate-note" data-i18n="gate.note">there's music playing here — turn it down in the player at the bottom left.</p>
-  </div>
-</div>
+<div class="sun-backdrop" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
 
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>import python</span><span>·</span><span>def play()</span><span>·</span><span>async def work()</span><span>·</span><span>pip install skibidi-snake</span><span>·</span><span>if __name__ == "__main__"</span><span>·</span><span>venv activate</span><span>·</span><span>type hints &gt;&gt;&gt;</span><span>·</span><span>🐍</span><span>·</span>
-    <span>import python</span><span>·</span><span>def play()</span><span>·</span><span>async def work()</span><span>·</span><span>pip install skibidi-snake</span><span>·</span><span>if __name__ == "__main__"</span><span>·</span><span>venv activate</span><span>·</span><span>type hints &gt;&gt;&gt;</span><span>·</span><span>🐍</span><span>·</span>
-  </div>
-</div>
-
-<header class="nav">
-  <a class="logo" href="#top">🐍 ehorty<em>.dev</em></a>
-  <nav class="nav-links" id="navLinks">
-    <a href="#about"><span data-i18n="nav.about">about</span></a>
-    <a href="#now"><span data-i18n="nav.now">now</span></a>
-    <a href="#projects"><span data-i18n="nav.projects">projects</span></a>
-    <a href="#stack"><span data-i18n="nav.stack">stack</span></a>
-    <a href="#contact"><span data-i18n="nav.contact">contact</span></a>
-  </nav>
-  <div class="nav-actions">
-    <button id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
-      <i data-lucide="moon" class="i-moon"></i>
-      <i data-lucide="sun" class="i-sun"></i>
-    </button>
-    <button id="langToggle" class="lang-btn" aria-label="Switch language">ru</button>
-    <button id="burger" aria-label="Menu" aria-expanded="false">
-      <i data-lucide="menu" class="i-menu"></i>
-      <i data-lucide="x" class="i-close"></i>
-    </button>
+<header class="topbar">
+  <div class="shell shell--wide topbar-inner">
+    <a class="brand" href="#home"><span class="brand-code">E/</span> ehorty<span>.dev</span></a>
+    <nav class="nav" id="nav">
+      <a href="#about" data-i18n="nav.about">about</a>
+      <a href="#now" data-i18n="nav.now">now</a>
+      <a href="#stack" data-i18n="nav.stack">stack</a>
+      <a href="#deploy" data-i18n="nav.deploy">projects</a>
+      <a href="#contact" data-i18n="nav.contact">contact</a>
+    </nav>
+    <div class="topbar-actions">
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Theme">
+        <i data-lucide="sun" class="i-sun"></i>
+        <i data-lucide="moon" class="i-moon"></i>
+      </button>
+      <button id="langToggle" class="lang-btn" aria-label="Language">RU</button>
+      <button id="burger" class="icon-btn" aria-label="Menu" aria-expanded="false">
+        <i data-lucide="menu" class="i-menu"></i>
+        <i data-lucide="x" class="i-close"></i>
+      </button>
+    </div>
   </div>
 </header>
 
-<main id="top">
+<main class="shell">
 
-  <section class="hero reveal">
-    <div class="hero-mascot" aria-hidden="true">🐍</div>
-    <p class="kicker" data-i18n="hero.kicker">🐍 python engineer · open to projects</p>
-    <h1>Hi, I&rsquo;m <span class="grad">Ehorty</span>!</h1>
-    <p class="lead" data-i18n="hero.lead">Python engineer who builds backends, bots and little automations. My code reads well, runs on time and brushes its teeth before bed.</p>
-    <div class="hero-links">
-      <a href="#projects" class="primary" data-i18n="hero.projects">see projects <i data-lucide="arrow-right" class="ic"></i></a>
-      <a href="https://github.com/ehorty" target="_blank" rel="noopener"><i data-lucide="github" class="ic"></i>GitHub</a>
-      <a href="#contact" class="ghost" data-i18n="hero.contact">contact <i data-lucide="arrow-right" class="ic"></i></a>
+  <section id="home" class="hero reveal">
+    <div class="hero-stats">
+      <span class="stat">python</span>
+      <span class="stat dim">version&nbsp;3.12+</span>
+      <span class="stat dim">status&nbsp;online</span>
+      <span class="stat">uptime&nbsp;🟢</span>
+    </div>
+    <p class="kicker" data-i18n="hero.kicker">python engineer &middot; open to projects</p>
+    <h1>I build <span class="chrome">neon</span> backends.</h1>
+    <p class="hero-lead" data-i18n="hero.lead">Bots, APIs and small automations — written in Python, styled in neon. Clean code, timely delivery, zero drama.</p>
+    <div class="hero-cta">
+      <a href="#deploy" class="btn btn--primary" data-i18n="hero.deploy">view projects <i data-lucide="arrow-down" class="ic"></i></a>
+      <a href="#contact" class="btn" data-i18n="hero.hire">hire me <i data-lucide="send" class="ic"></i></a>
+    </div>
+    <div class="type-card" aria-label="terminal output">
+      <div class="type-bar"><span data-i18n="type.title">~/ehorty — terminal</span><i data-lucide="minus" class="ic"></i></div>
+      <pre class="type-out" id="typeOut"></pre>
     </div>
   </section>
 
-  <section class="reveal" id="about">
-    <h2><span class="badge b-pink">🫵</span><span data-i18n="nav.about">about</span></h2>
-    <p class="lead" data-i18n="about.p1"></p>
-    <p class="lead" data-i18n="about.p2"></p>
-    <dl class="about-facts">
-      <div class="sticker s-yellow"><dt data-i18n="about.f1t"></dt><dd data-i18n="about.f1d"></dd></div>
-      <div class="sticker s-mint"><dt data-i18n="about.f2t"></dt><dd data-i18n="about.f2d"></dd></div>
-      <div class="sticker s-sky"><dt data-i18n="about.f3t"></dt><dd data-i18n="about.f3d"></dd></div>
+  <section id="about" class="reveal">
+    <h2><span class="hnum">01</span><span data-i18n="nav.about">about</span></h2>
+    <p class="lede" data-i18n="about.lede">Python engineer who treats code like a craft — readable, tested, and pleasant to work with.</p>
+    <div class="facts">
+      <div class="fact">
+        <dt data-i18n="about.f1t">core</dt>
+        <dd data-i18n="about.f1d">API &middot; bots &middot; automation</dd>
+      </div>
+      <div class="fact">
+        <dt data-i18n="about.f2t">style</dt>
+        <dd data-i18n="about.f2d">clean, typed, tested</dd>
+      </div>
+      <div class="fact">
+        <dt data-i18n="about.f3t">motto</dt>
+        <dd data-i18n="about.f3d">ship it twice alone? script it.</dd>
+      </div>
+      <div class="fact">
+        <dt data-i18n="about.f4t">now</dt>
+        <dd data-i18n="about.f4d">deep-diving asyncio</dd>
+      </div>
+    </div>
+  </section>
+
+  <section id="now" class="reveal">
+    <h2><span class="hnum">02</span><span data-i18n="nav.now">now</span></h2>
+    <div class="now-panel neon-panel">
+      <div class="nw-head">
+        <span class="pulse-dot"></span>
+        <span id="liveStatus" data-i18n="now.status">digging into async python</span>
+      </div>
+      <p data-i18n="now.text">polishing my personal toolbox and going deeper into asyncio. public repositories are coming soon.</p>
+      <div class="meter">
+        <div class="meter-label"><span data-i18n="now.label">toolbox progress</span><b>78%</b></div>
+        <div class="meter-track"><i></i></div>
+      </div>
+      <div class="now-tags">
+        <span>asyncio</span>
+        <span>fastapi</span>
+        <span>aiogram</span>
+        <span>packaging</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="stack" class="reveal">
+    <h2><span class="hnum">03</span><span data-i18n="nav.stack">stack</span></h2>
+    <dl class="stack">
+      <div class="stack-row">
+        <dt data-i18n="stack.backend">backend</dt>
+        <dd><span class="chip">Python</span><span class="chip hot">FastAPI</span><span class="chip">Django</span><span class="chip">Flask</span><span class="chip">asyncio</span></dd>
+      </div>
+      <div class="stack-row">
+        <dt data-i18n="stack.bots">bots</dt>
+        <dd><span class="chip hot">aiogram</span><span class="chip">discord.py</span></dd>
+      </div>
+      <div class="stack-row">
+        <dt data-i18n="stack.data">data</dt>
+        <dd><span class="chip">PostgreSQL</span><span class="chip">SQLite</span><span class="chip">Redis</span><span class="chip">pandas</span></dd>
+      </div>
+      <div class="stack-row">
+        <dt data-i18n="stack.tools">tools</dt>
+        <dd><span class="chip">Docker</span><span class="chip">Linux</span><span class="chip">Git</span><span class="chip">pytest</span><span class="chip">REST</span></dd>
+      </div>
     </dl>
   </section>
 
-  <section class="reveal" id="now">
-    <h2><span class="badge b-sky">⚡</span><span data-i18n="nav.now">now</span></h2>
-    <div class="now sticker s-cream">
-      <div class="now-live">
-        <span class="dot" aria-hidden="true"></span>
-        <span id="myStatus">digging into async python</span>
-      </div>
-      <p data-i18n="now.text">polishing my own toolbox and going deeper into async python. public projects are on the way.</p>
-      <div class="progress"><span data-i18n="progress.label">cooking something</span><div class="progress-bar"><i></i></div><em>78%</em></div>
-    </div>
-
-    <div class="code-card" aria-label="code sample">
-      <div class="code-bar"><span></span><span></span><span></span><em>snake.py</em></div>
-      <pre class="code-body"><span class="c-kw">def</span> <span class="c-fn">main</span>():
-    <span class="c-kw">return</span> <span class="c-str">"welcome, human 🐍"</span>
-
-<span class="c-in">if __name__</span> <span class="c-kw">in</span> {<span class="c-str">"__main__"</span>}:
-    <span class="c-fn">print</span>(<span class="c-fn">main</span>())<span class="t-cursor" aria-hidden="true"></span></pre>
-    </div>
-  </section>
-
-  <section class="reveal" id="projects">
-    <h2><span class="badge b-pink">🚀</span><span data-i18n="nav.projects">projects</span></h2>
-    <ul class="projects">
-      <li>
-        <a class="sticker s-purple" href="https://github.com/ehorty/ehorty.github.io" target="_blank" rel="noopener">
-          <div class="row">
-            <h3>📄 ehorty.github.io</h3>
-            <span class="arrow"><i data-lucide="arrow-up-right" class="ic"></i></span>
+  <section id="deploy" class="reveal">
+    <h2><span class="hnum">04</span><span data-i18n="nav.deploy">projects</span></h2>
+    <ul class="deploy-list">
+      <li class="deploy-card neon-panel">
+        <a href="https://github.com/ehorty/ehorty.github.io" target="_blank" rel="noopener">
+          <div class="dc-head">
+            <span class="repo">📦 ehorty.github.io</span>
+            <i data-lucide="arrow-up-right" class="ic dc-arrow"></i>
           </div>
-          <p data-i18n="projects.site">the page you're reading right now. handcrafted, playful, with a music player and two languages.</p>
-          <div class="tags"><span>html</span><span>css</span><span>js</span></div>
+          <p data-i18n="deploy.site">this very page — hand-built, bilingual, with a neon soundtrack.</p>
+          <div class="dc-tags"><span>html</span><span>css</span><span>js</span></div>
         </a>
       </li>
     </ul>
-    <p class="coming" data-i18n="projects.more">more public projects are cooking in the oven — stay tuned.</p>
+    <p class="deploy-note" data-i18n="deploy.more">more public repos are compiling in the background — watch this space.</p>
   </section>
 
-  <section class="reveal" id="stack">
-    <h2><span class="badge b-coral">🧰</span><span data-i18n="nav.stack">stack</span></h2>
-    <dl class="stack">
-      <dt data-i18n="stack.backend">backend</dt><dd><span class="pill p-pink">Python</span><span class="pill p-mint">Django</span><span class="pill p-sky">Flask</span><span class="pill p-yellow">FastAPI</span></dd>
-      <dt data-i18n="stack.bots">bots</dt><dd><span class="pill p-purple">aiogram</span><span class="pill p-pink">discord.py</span></dd>
-      <dt data-i18n="stack.database">database</dt><dd><span class="pill p-sky">PostgreSQL</span><span class="pill p-mint">SQLite</span><span class="pill p-coral">Redis</span></dd>
-      <dt data-i18n="stack.tools">tools</dt><dd><span class="pill p-yellow">Git</span><span class="pill p-coral">Linux</span><span class="pill p-purple">Docker</span><span class="pill p-mint">REST API</span></dd>
-      <dt data-i18n="stack.other">other</dt><dd><span class="pill p-pink">SQL</span><span class="pill p-sky">pytest</span><span class="pill p-yellow">asyncio</span><span class="pill p-mint">pandas</span></dd>
-    </dl>
-  </section>
-
-  <section class="reveal" id="contact">
-    <h2><span class="badge b-yellow">💌</span><span data-i18n="nav.contact">contact</span></h2>
-    <p class="lead" data-i18n="contact.lead">have a project, an idea, or just want to say hi? my inbox is always open.</p>
-    <div class="hero-links contact">
-      <a class="s-coral" href="https://t.me/Ehortyy" target="_blank" rel="noopener"><i data-lucide="send" class="ic"></i>Telegram<i data-lucide="arrow-up-right" class="ic ext"></i></a>
-      <a class="s-purple" href="https://discord.com/users/000000000000000000" target="_blank" rel="noopener"><i data-lucide="gamepad-2" class="ic"></i>Discord<i data-lucide="arrow-up-right" class="ic ext"></i></a>
-      <a class="s-sky" href="https://github.com/ehorty" target="_blank" rel="noopener"><i data-lucide="github" class="ic"></i>GitHub<i data-lucide="arrow-up-right" class="ic ext"></i></a>
+  <section id="contact" class="reveal">
+    <h2><span class="hnum">05</span><span data-i18n="nav.contact">contact</span></h2>
+    <p class="lede" data-i18n="contact.lede">Have a project, an idea, or just want to vibe? My inbox is open 24/7.</p>
+    <div class="contact-row">
+      <a class="c-link neon-panel" href="https://t.me/Ehortyy" target="_blank" rel="noopener"><i data-lucide="send" class="ic"></i>Telegram<i data-lucide="arrow-up-right" class="ic ext"></i></a>
+      <a class="c-link neon-panel" href="https://github.com/ehorty" target="_blank" rel="noopener"><i data-lucide="github" class="ic"></i>GitHub<i data-lucide="arrow-up-right" class="ic ext"></i></a>
+      <a class="c-link neon-panel" href="https://discord.com/users/000000000000000000" target="_blank" rel="noopener"><i data-lucide="gamepad-2" class="ic"></i>Discord<i data-lucide="arrow-up-right" class="ic ext"></i></a>
     </div>
   </section>
 
   <footer class="reveal">
-    <p data-i18n="footer.text">© 2026 ehorty · made with 🐍 and patience</p>
-    <p class="hint">psst — try typing <code>python</code></p>
+    <p data-i18n="footer.copy">© 2026 ehorty · crafted in neon</p>
+    <p class="foot-hint" data-i18n="footer.hint">psst — press <code>alt + w</code></p>
   </footer>
+
 </main>
 
-<div id="player" class="hidden">
-  <img id="plCover" src="music/cover.jpg" alt="" loading="lazy" onerror="this.classList.add('noimg')">
-  <div class="pl-body">
-    <div class="pl-top">
-      <button id="plToggle" aria-label="Play or pause">
+<div id="dock" class="hidden" aria-label="music dock">
+  <img id="dockCover" src="music/cover.jpg" alt="" loading="lazy" onerror="this.classList.add('noimg')">
+  <div class="dock-body">
+    <div class="dock-top">
+      <button id="dockPlay" class="icon-btn" aria-label="Play or pause">
         <i data-lucide="play" class="i-play"></i>
         <i data-lucide="pause" class="i-pause"></i>
       </button>
-      <div class="pl-meta">
-        <span id="plTitle" data-i18n="player.title">Music?</span>
-        <input id="plSeek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek">
+      <div class="dock-meta">
+        <span id="dockTitle" data-i18n="dock.title">neon_loop.mp3</span>
+        <input id="dockSeek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek">
       </div>
     </div>
-    <div class="pl-vol">
+    <div class="dock-vol">
       <i data-lucide="volume-2" class="ic"></i>
-      <input id="plVol" type="range" min="0" max="1" step="0.01" value="0.05" aria-label="Volume">
-      <span id="plTime">0:00</span>
+      <input id="dockVol" type="range" min="0" max="1" step="0.01" value="0.05" aria-label="Volume">
+      <span id="dockTime">0:00</span>
     </div>
   </div>
 </div>
 
-<script src="status.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
