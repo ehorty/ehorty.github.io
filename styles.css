@@ -480,16 +480,21 @@ footer p { font-size: .8rem; color: var(--muted); }
   transition: opacity .4s ease, transform .4s ease;
 }
 #dock.hidden { opacity: 0; transform: translateY(16px); pointer-events: none; }
-#dockCover {
+#dockCover { display: none; }
+.dock-art {
   width: 50px;
   height: 50px;
   border-radius: 14px;
-  object-fit: cover;
   flex-shrink: 0;
   border: 1px solid var(--line);
-  background: linear-gradient(135deg, var(--accent), var(--ink));
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .12), transparent 60%),
+    linear-gradient(135deg, var(--accent), transparent 70%);
+  display: grid;
+  place-items: center;
+  color: var(--accent-ink);
 }
-#dockCover.noimg { visibility: hidden; }
+.dock-art .ic { width: 22px; height: 22px; }
 .dock-body { display: flex; flex-direction: column; gap: .35rem; min-width: 0; flex: 1; }
 .dock-top { display: flex; align-items: center; gap: .6rem; }
 .play {
@@ -513,10 +518,24 @@ footer p { font-size: .8rem; color: var(--muted); }
 #dock.playing .i-pause { display: block; }
 .dock-meta { display: flex; flex-direction: column; gap: .2rem; min-width: 0; flex: 1; }
 #dockTitle { font-size: .75rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.live-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .66rem;
+  letter-spacing: .18em;
+  color: var(--accent);
+  font-weight: 700;
+}
+.live-tag i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 1.6s ease-in-out infinite;
+}
 .dock-vol { display: flex; align-items: center; gap: .45rem; }
 .dock-vol .ic { width: 14px; height: 14px; color: var(--muted); }
-#dockVol { width: 84px; }
-#dockTime { font-size: .66rem; color: var(--muted); }
 
 input[type="range"] {
   -webkit-appearance: none;
@@ -544,11 +563,10 @@ input[type="range"]::-moz-range-thumb {
   border: 2px solid var(--bg);
   box-shadow: 0 0 10px var(--accent-glow);
 }
-#dockSeek { width: 150px; flex: 1; }
+#dockVol { width: 84px; }
 
 @media (max-width: 480px) {
   #dock { left: .7rem; bottom: .7rem; right: .7rem; max-width: none; }
-  #dockSeek { width: auto; }
 }
 
 /* ===== Mobile nav ===== */

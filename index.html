@@ -213,7 +213,7 @@
 <div id="swagToast" class="swag-toast">SWAG+1</div>
 
 <div id="dock" class="hidden" aria-label="music">
-  <img id="dockCover" src="music/cover.jpg" alt="" loading="lazy" onerror="this.classList.add('noimg')">
+  <div class="dock-art"><i data-lucide="radio" class="ic"></i></div>
   <div class="dock-body">
     <div class="dock-top">
       <button id="dockPlay" class="play" aria-label="play or pause">
@@ -221,16 +221,16 @@
         <i data-lucide="pause" class="i-pause"></i>
       </button>
       <div class="dock-meta">
-        <span id="dockTitle" class="mono" data-i18n="dock.title">swag_theme.mp3</span>
-        <input id="dockSeek" type="range" min="0" max="100" value="0" step="0.1" aria-label="seek">
+        <span id="dockTitle" class="mono" data-i18n="dock.title">lofi_radio · live</span>
+        <span class="live-tag mono"><i></i><span data-i18n="dock.live">LIVE</span></span>
       </div>
     </div>
     <div class="dock-vol">
       <i data-lucide="volume-2" class="ic"></i>
       <input id="dockVol" type="range" min="0" max="1" step="0.01" value="0.05" aria-label="volume">
-      <span id="dockTime" class="mono">0:00</span>
     </div>
   </div>
+  <audio id="audioTrack" preload="none"></audio>
 </div>
 
 <script src="script.js"></script>
