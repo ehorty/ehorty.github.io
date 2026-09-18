@@ -170,7 +170,7 @@
   const maybe = (v) => (v && isFinite(v) && v >= 0 ? v : 5);
   volume.value = maybe(parseFloat(ls.getItem('vol')) || 5);
 
-  const LOFI_ID = 'jfKfPfyJRdk';
+  const LOFI_ID = 'rFZHOHl-L8A';
   let yt = null;
   let ytReady = false;
 
