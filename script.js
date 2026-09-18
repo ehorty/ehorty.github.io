@@ -37,11 +37,10 @@ const i18n = {
     'now.text': 'a small async tool that makes long-running python tasks way less annoying.',
 
     'nav.projects': 'projects',
-    'projects.pyq': 'async task queue and progress reporting for long-running python jobs.',
-    'projects.cleapi': 'starter kit for fastapi services: auth, db, tests and docker out of the box.',
-    'projects.telebee': 'a small opinionated framework for structured telegram bots with aiogram.',
-    'projects.private': 'private',
-    'projects.scraply': 'config-driven scraper with proxies, retries and pluggable parsers.',
+    'projects.site': 'this very site — hand-built bio page with a music player, EN/RU and light/dark themes.',
+    'projects.soon': 'soon',
+    'projects.pyq': 'in the oven — details coming soon.',
+    'projects.telebee': 'in the oven — details coming soon.',
 
     'nav.stack': 'stack',
     'stack.backend': 'backend',
@@ -82,11 +81,10 @@ const i18n = {
     'now.text': 'маленький асинхронный инструмент, из-за которого долгие python-задачи достают гораздо меньше.',
 
     'nav.projects': 'проекты',
-    'projects.pyq': 'асинхронная очередь задач и прогресс-бар для долгих python-джобов.',
-    'projects.cleapi': 'стартер-кит для fastapi-сервисов: auth, база, тесты и docker из коробки.',
-    'projects.telebee': 'небольшой настырный фреймворк для структурных telegram-ботов на aiogram.',
-    'projects.private': 'приватный',
-    'projects.scraply': 'скрапер на конфигах: прокси, ретраи и подключаемые парсеры.',
+    'projects.site': 'этот самый сайт — био-страница, собранная руками: музыкальный плеер, EN/RU и светлая/тёмная темы.',
+    'projects.soon': 'скоро',
+    'projects.pyq': 'в процессе — детали скоро будут.',
+    'projects.telebee': 'в процессе — детали скоро будут.',
 
     'nav.stack': 'стек',
     'stack.backend': 'бэкенд',
