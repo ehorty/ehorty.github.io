@@ -1,110 +1,97 @@
-// ===== Boot screen =====
+// ===== Boot =====
 const boot = document.getElementById('boot');
-document.body.classList.add('loading');
 
-const bootMin = new Promise((r) => setTimeout(r, 1100));
+const bootMin = new Promise((r) => setTimeout(r, 1300));
 const pageLoaded = document.readyState === 'complete'
   ? Promise.resolve()
   : new Promise((r) => window.addEventListener('load', r, { once: true }));
 
 Promise.all([bootMin, pageLoaded]).then(() => {
-  boot.classList.add('done');
-  document.body.classList.remove('loading');
+  boot.classList.add('ready');
+  setTimeout(() => boot.classList.add('done'), 650);
 });
 
 // ===== Localization =====
 const i18n = {
   en: {
-    'nav.about': 'about',
-    'nav.now': 'now',
-    'nav.stack': 'stack',
-    'nav.deploy': 'projects',
-    'nav.contact': 'contact',
+    'nav.profile': 'profile',
+    'nav.stages': 'stages',
+    'nav.powers': 'powers',
+    'nav.coins': 'coins',
 
-    'hero.kicker': 'python engineer · open to projects',
-    'hero.lead': 'Bots, APIs and small automations — written in Python, styled in neon. Clean code, timely delivery, zero drama.',
-    'hero.deploy': 'view projects',
-    'hero.hire': 'hire me',
+    'hero.lead': 'backends, bots and tiny automations. drop a coin, get a level-up.',
+    'hero.start': 'start game',
+    'hero.coin': 'insert coin',
 
-    'type.title': '~/ehorty — terminal',
+    'profile.title': 'PLAYER PROFILE',
+    'profile.tag': 'class python.Craftsman',
+    'profile.s1n': 'SPD',
+    'profile.s1d': 'fast delivery, no crunch',
+    'profile.s2n': 'ATK',
+    'profile.s2d': 'backends & bots',
+    'profile.s3n': 'LUK',
+    'profile.s3d': 'debugs after midnight',
 
-    'about.lede': 'Python engineer who treats code like a craft — readable, tested, and pleasant to work with.',
-    'about.f1t': 'core',
-    'about.f1d': 'API · bots · automation',
-    'about.f2t': 'style',
-    'about.f2d': 'clean, typed, tested',
-    'about.f3t': 'motto',
-    'about.f3d': 'ship it twice alone? script it.',
-    'about.f4t': 'now',
-    'about.f4d': 'deep-diving asyncio',
+    'stages.title': 'SELECT YOUR STAGE',
+    'stages.st1': 'a playable adventure in html/css/js. two languages, one soundtrack. you are inside it.',
+    'stages.st2': 'currently compiling. warp gate opening soon.',
+    'stages.lock': 'locked — see high scores',
 
-    'now.status': 'digging into async python',
-    'now.text': 'polishing my personal toolbox and going deeper into asyncio. public repositories are coming soon.',
-    'now.label': 'toolbox progress',
+    'powers.title': 'POWER-UPS',
+    'powers.w': 'WEAPONS',
+    'powers.d': 'REMOTE',
+    'powers.s': 'SHIELD',
+    'powers.b': 'BOOST',
 
-    'stack.backend': 'backend',
-    'stack.bots': 'bots',
-    'stack.data': 'data',
-    'stack.tools': 'tools',
+    'coins.title': 'HIGH SCORES',
+    'coins.lead': 'want a co-op run or a score to beat? ring the arcade owner.',
 
-    'deploy.site': 'this very page — hand-built, bilingual, with a neon soundtrack.',
-    'deploy.more': 'more public repos are compiling in the background — watch this space.',
+    'footer.line': 'GAME OVER — not yet. press',
 
-    'contact.lede': 'Have a project, an idea, or just want to vibe? My inbox is open 24/7.',
-
-    'footer.copy': '© 2026 ehorty · crafted in neon',
-    'footer.hint': 'psst — press',
-
-    'dock.title': 'neon_loop.mp3'
+    'dock.title': 'jukebox — neon_loop.mp3'
   },
 
   ru: {
-    'nav.about': 'обо мне',
-    'nav.now': 'щас',
-    'nav.stack': 'стек',
-    'nav.deploy': 'проекты',
-    'nav.contact': 'контакты',
+    'nav.profile': 'профиль',
+    'nav.stages': 'уровни',
+    'nav.powers': 'сила',
+    'nav.coins': 'монеты',
 
-    'hero.kicker': 'питон-инженер · открыт к проектам',
-    'hero.lead': 'Боты, API и небольшие автоматизации — на Python, в неоновом стиле. Чистый код, сроки, ноль драмы.',
-    'hero.deploy': 'смотреть проекты',
-    'hero.hire': 'нанять меня',
+    'hero.lead': 'бэкенды, боты и маленькие автоматизации. брось монету — получишь уровень.',
+    'hero.start': 'начать игру',
+    'hero.coin': 'вставить монету',
 
-    'type.title': '~/ehorty — терминал',
+    'profile.title': 'ПРОФИЛЬ ИГРОКА',
+    'profile.tag': 'класс python.Craftsman',
+    'profile.s1n': 'СКР',
+    'profile.s1d': 'быстрая сдача, без овертайма',
+    'profile.s2n': 'АТК',
+    'profile.s2d': 'бэкенды и боты',
+    'profile.s3n': 'УДАЧ',
+    'profile.s3d': 'отлаживает после полуночи',
 
-    'about.lede': 'Python-инженер, который относится к коду как к ремеслу — читабельно, с тестами и удовольствием.',
-    'about.f1t': 'ядро',
-    'about.f1d': 'API · боты · автоматизация',
-    'about.f2t': 'стиль',
-    'about.f2d': 'чисто, типизировано, с тестами',
-    'about.f3t': 'девиз',
-    'about.f3d': 'запускал дважды? скриптуй.',
-    'about.f4t': 'щас',
-    'about.f4d': 'копаю глубже в asyncio',
+    'stages.title': 'ВЫБЕРИ УРОВЕНЬ',
+    'stages.st1': 'приключение на html/css/js. два языка, один саундтрек. ты прямо внутри.',
+    'stages.st2': 'пока компилируется. варп-врата скоро откроются.',
+    'stages.lock': 'заблокировано — смотри рекорды',
 
-    'now.status': 'копаюсь в async python',
-    'now.text': 'довожу до ума личный тулбокс и углубляюсь в asyncio. публичные репозитории скоро появятся.',
-    'now.label': 'прогресс тулбокса',
+    'powers.title': 'УСИЛЕНИЯ',
+    'powers.w': 'ОРУЖИЕ',
+    'powers.d': 'ПУЛЬТЫ',
+    'powers.s': 'ЩИТ',
+    'powers.b': 'БУСТ',
 
-    'stack.backend': 'бэкенд',
-    'stack.bots': 'боты',
-    'stack.data': 'данные',
-    'stack.tools': 'инструменты',
+    'coins.title': 'РЕКОРДЫ',
+    'coins.lead': 'хочешь кооп-игру или рекорд побить? позвони владельцу аркады.',
 
-    'deploy.site': 'эта самая страница — собрана вручную, на двух языках, с неоновым саундтреком.',
-    'deploy.more': 'ещё публичные репозитории компилируются в фоне — следи за обновлениями.',
+    'footer.line': 'GAME OVER — не сегодня. нажми',
 
-    'contact.lede': 'Есть проект, идея или просто хочется поболтать? Инбокс открыт 24/7.',
-
-    'footer.copy': '© 2026 ehorty · сделано в неоне',
-    'footer.hint': 'тсс, нажми',
-
-    'dock.title': 'neon_loop.mp3'
+    'dock.title': 'джубокс — neon_loop.mp3'
   }
 };
 
 const langToggle = document.getElementById('langToggle');
-const bareHints = document.querySelectorAll('[data-i18n="footer.hint"]');
+const footerLine = document.querySelector('[data-i18n="footer.line"]');
 
 function applyLang(lang) {
   document.documentElement.lang = lang;
@@ -113,11 +100,11 @@ function applyLang(lang) {
     if (i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
   });
   langToggle.textContent = lang === 'ru' ? 'EN' : 'RU';
-  bareHints.forEach((h) => {
+  if (footerLine) {
     const code = document.createElement('code');
-    code.textContent = 'alt + w';
-    h.appendChild(code);
-  });
+    code.textContent = 'C';
+    footerLine.appendChild(code);
+  }
 }
 
 let lang = localStorage.getItem('lang') || 'en';
@@ -129,7 +116,7 @@ langToggle.addEventListener('click', () => {
   applyLang(lang);
 });
 
-// ===== Theme toggle =====
+// ===== Theme =====
 const root = document.documentElement;
 const themeToggle = document.getElementById('themeToggle');
 
@@ -142,81 +129,69 @@ themeToggle.addEventListener('click', () => {
   localStorage.setItem('theme', theme);
 });
 
-// ===== Lucide icons =====
+// ===== Icons =====
 if (window.lucide) lucide.createIcons();
 
-// ===== Terminal typewriter =====
-const typeOut = document.getElementById('typeOut');
-
-const script = [
-  [['c-mut', '> '], ['c-gold', 'python'], ['c-mut', ' run.py']],
-  [['c-cyan', 'boot'], ['c-mut', ': importing '], ['c-gold', 'ehorty'], ['c-mut', ' ... '], ['c-cyan', 'ok']],
-  [['c-cyan', 'api'], ['c-mut', '  : loading backends ... '], ['c-cyan', 'ok']],
-  [['c-cyan', 'bots'], ['c-mut', ' : loading handlers ... '], ['c-cyan', 'ok']],
-  [['c-cyan', 'style'], ['c-mut', ': why so clean? '], ['c-cyan', 'tested']],
-  [['c-gold', 'status'], ['c-mut', ' : '], ['c-cyan', 'ONLINE']]
+// ===== CRT screen drift (typing echo) =====
+const crtOut = document.getElementById('crtOut');
+const crtLines = [
+  [['c-dim', 'PRESS COIN · PLAY ▲']],
+  [['c-hi', 'PLAYER 1  '], ['c-dim', '  CREDIT 00']],
+  [['c-dim', 'loading python.library ... '], ['c-ok', 'OK']],
+  [['c-dim', 'loading coin.slot ......... '], ['c-ok', 'OK']],
+  [['c-dim', 'loading neon.shell ........ '], ['c-ok', 'OK']],
+  [['c-hi', '>>> READY PLAYER ONE']]
 ];
 
-function typeLine(parts, lineIndex, done) {
-  if (lineIndex >= script.length) { done(); return; }
-  const line = document.createElement('div');
-  typeOut.appendChild(line);
-  let partIndex = 0;
-  let charIndex = 0;
+function writeCrt(idx) {
+  if (idx >= crtLines.length) {
+    crtOut.scrollTop = crtOut.scrollHeight;
+    return;
+  }
+  const row = document.createElement('span');
+  row.style.display = 'block';
+  row.style.whiteSpace = 'nowrap';
+  crtOut.appendChild(row);
 
+  let p = 0;
+  let ch = 0;
   function step() {
-    if (partIndex >= parts.length) {
-      if (lineIndex < script.length - 1) {
-        setTimeout(() => typeLine(script[lineIndex + 1], lineIndex + 1, done), 260);
-      } else {
-        cursor(); done();
-      }
+    if (p >= crtLines[idx].length) {
+      setTimeout(() => writeCrt(idx + 1), idx === 0 ? 900 : 260);
       return;
     }
-    const [cls, text] = parts[partIndex];
-    if (charIndex < text.length) {
-      const span = line.querySelector('.seg:last-child');
-      let seg = span && span.dataset.cls === cls ? span : null;
-      if (!seg) {
-        seg = document.createElement('span');
-        seg.className = 'seg';
-        seg.dataset.cls = cls;
-        seg.classList.add(cls);
-        line.appendChild(seg);
-      }
-      seg.textContent += text[charIndex++];
-      setTimeout(step, 26);
+    const [cls, text] = crtLines[idx][p];
+    if (ch < text.length) {
+      const span = document.createElement('span');
+      span.className = cls;
+      span.textContent = text[ch++];
+      row.appendChild(span);
+      crtOut.scrollTop = crtOut.scrollHeight;
+      setTimeout(step, 14);
     } else {
-      partIndex++; charIndex = 0;
-      setTimeout(step, 6);
+      p++;
+      ch = 0;
+      setTimeout(step, 8);
     }
   }
   step();
 }
 
-let cursorEl = null;
-function cursor() {
-  const line = document.createElement('div');
-  typeOut.appendChild(line);
-  const span = document.createElement('span');
-  span.classList.add('tcursor');
-  line.appendChild(span);
-  cursorEl = span;
-}
-
-const typeStarted = sessionStorage.getItem('typed') === '1';
-const io = new IntersectionObserver((entries) => {
+const crtBox = document.getElementById('crt');
+const crtIO = new IntersectionObserver((entries) => {
   for (const e of entries) {
     if (!e.isIntersecting) continue;
-    io.unobserve(e.target);
-    if (!typeStarted && !typeOut.hasChildNodes()) {
-      typeLine(script[0], 0, () => { sessionStorage.setItem('typed', '1'); });
+    crtIO.unobserve(e.target);
+    if (!crtOut.dataset.typed) {
+      crtOut.dataset.typed = '1';
+      crtOut.innerHTML = '';
+      writeCrt(0);
     }
   }
 }, { threshold: 0.3 });
-io.observe(document.querySelector('.type-card'));
+crtIO.observe(crtBox);
 
-// ===== Reveal on scroll =====
+// ===== Reveal =====
 const reveal = new IntersectionObserver(
   (entries) => {
     for (const entry of entries) {
@@ -248,12 +223,22 @@ nav.querySelectorAll('a').forEach((a) =>
   })
 );
 
-// ===== Easter egg: alt + w =====
+// ===== Coin drop easter egg (press C) =====
+const coinToast = document.getElementById('coinToast');
+let toastTimer = null;
+
+function dropCoin() {
+  coinToast.textContent = 'COIN INSERTED · GOOD LUCK';
+  coinToast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => coinToast.classList.remove('show'), 1600);
+}
+
 document.addEventListener('keydown', (e) => {
-  if (e.key.toLowerCase() === 'w' && (e.altKey || e.metaKey)) {
-    e.preventDefault();
-    document.body.classList.add('neon-flash');
-    setTimeout(() => document.body.classList.remove('neon-flash'), 1400);
+  if (e.key.toLowerCase() === 'c' && !e.ctrlKey && !e.metaKey && !e.altKey) {
+    const ev = e.target.tagName;
+    if (ev === 'INPUT' || ev === 'TEXTAREA') return;
+    dropCoin();
   }
 });
 
