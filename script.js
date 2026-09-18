@@ -53,6 +53,8 @@ const i18n = {
 
     'footer.text': '© 2026 ehorty · made with 🐍 and patience',
 
+    'player.title': 'Music?',
+
     'gate.title': 'tap to enter',
     'gate.note': "there's music playing here — turn it down in the player at the bottom left."
   },
@@ -93,6 +95,8 @@ const i18n = {
     'contact.lead': 'есть проект, идея или просто хочется поздороваться? я всегда на связи.',
 
     'footer.text': '© 2026 ehorty · сделано с 🐍 и терпением',
+
+    'player.title': 'Музыка?',
 
     'gate.title': 'нажми, чтобы войти',
     'gate.note': 'тут играет музыка — громкость можно убрать в плеере слева снизу.'
