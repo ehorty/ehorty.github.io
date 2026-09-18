@@ -38,9 +38,6 @@ const i18n = {
 
     'nav.projects': 'projects',
     'projects.site': 'this very site — hand-built bio page with a music player, EN/RU and light/dark themes.',
-    'projects.soon': 'soon',
-    'projects.pyq': 'in the oven — details coming soon.',
-    'projects.telebee': 'in the oven — details coming soon.',
 
     'nav.stack': 'stack',
     'stack.backend': 'backend',
@@ -82,9 +79,6 @@ const i18n = {
 
     'nav.projects': 'проекты',
     'projects.site': 'этот самый сайт — био-страница, собранная руками: музыкальный плеер, EN/RU и светлая/тёмная темы.',
-    'projects.soon': 'скоро',
-    'projects.pyq': 'в процессе — детали скоро будут.',
-    'projects.telebee': 'в процессе — детали скоро будут.',
 
     'nav.stack': 'стек',
     'stack.backend': 'бэкенд',
