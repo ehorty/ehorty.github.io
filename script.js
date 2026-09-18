@@ -18,26 +18,27 @@ Promise.all([minDelay, pageLoaded]).then(() => {
 const i18n = {
   en: {
     'hero.kicker': 'python engineer',
-    'hero.lead': "i'm Ehorty, a Python developer. backends, telegram bots, scripts and small tools that make everyday life easier — simple, readable code that doesn't explode at 2 a.m.",
-    'hero.projects': 'projects →',
-    'hero.contact': 'contact →',
+    'hero.lead': "Python engineer focused on backends, bots and automation. I write code that reads well, runs reliably and stays out of my way at 3 a.m.",
+    'hero.projects': 'see projects',
+    'hero.contact': 'contact',
 
     'nav.about': 'about',
-    'about.p1': "nice to meet you. i'm Ehorty, a Python developer. most of my time goes into backends, bots and automation. i like readable code, clear structure, and finally fixing the bug that drove me crazy for a week.",
-    'about.p2': "when i'm not coding, i'm probably listening to music, playing something, or coming up with the next idea.",
+    'about.p1': "I'm Ehorty, a Python engineer. My day-to-day is backends, Telegram bots and scripts that quietly remove boring tasks from my life. I care about readable code, tested logic, and tools that keep working long after the excitement wears off.",
+    'about.p2': "When I step away from the keyboard, I'm usually tuning some small personal project, listening to music, or chasing a good idea before it escapes.",
 
     'about.f1t': 'focus',
     'about.f1d': 'backends · bots · automation',
-    'about.f2t': 'now',
-    'about.f2d': 'learning async python & improving my own tools',
-    'about.f3t': 'open for',
-    'about.f3d': 'projects, ideas and friendly collabs',
+    'about.f2t': 'status',
+    'about.f2d': 'open to new projects and ideas',
+    'about.f3t': 'motto',
+    'about.f3d': 'if it runs twice, script it',
 
     'nav.now': 'now',
-    'now.text': 'digging deeper into async python and polishing my own toolbox. more public projects on the way.',
+    'now.text': 'polishing my own toolbox and going deeper into async python. public projects are on the way.',
 
     'nav.projects': 'projects',
-    'projects.site': 'this site itself — my personal page with a music player, two languages and light/dark themes.',
+    'projects.site': "the page you're reading right now. handcrafted, dark theme, a music player, and two languages.",
+    'projects.more': 'more public projects are on the way — stay tuned.',
 
     'nav.stack': 'stack',
     'stack.backend': 'backend',
@@ -45,40 +46,39 @@ const i18n = {
     'stack.database': 'database',
     'stack.tools': 'tools',
     'stack.other': 'other',
-    'stack.fun': 'extras',
-    'stack.fun_desc': 'pet projects & experiments',
 
     'nav.contact': 'contact',
-    'contact.lead': 'want to discuss something, share an idea, or just say hi? write to me — happy to chat.',
+    'contact.lead': 'have a project, an idea, or just want to say hi? my inbox is open.',
 
-    'footer.text': '© 2026 ehorty · from ehorty import website',
+    'footer.text': '© 2026 ehorty · built with python and patience',
 
-    'gate.title': 'click anywhere to continue',
-    'gate.note': 'music plays on this site. you can adjust the volume in the player at the bottom left.'
+    'gate.title': 'tap to enter',
+    'gate.note': "there's music playing on this site — you can turn it down in the player at the bottom left."
   },
 
   ru: {
-    'hero.kicker': 'питон-разработчик',
-    'hero.lead': 'привет, я Ehorty — Python-разработчик. бэкенды, телеграм-боты, скрипты и маленькие инструменты, которые делают жизнь проще: простой, читаемый код, который не «взрывается» в два часа ночи.',
-    'hero.projects': 'проекты →',
-    'hero.contact': 'контакты →',
+    'hero.kicker': 'питон-инженер',
+    'hero.lead': 'Python-инженер: бэкенды, боты и автоматизация. Пишу код, который легко читается, стабильно работает и не мешает спать в три ночи.',
+    'hero.projects': 'проекты',
+    'hero.contact': 'контакты',
 
     'nav.about': 'обо мне',
-    'about.p1': 'рад знакомству. я Ehorty, питон-разработчик. большая часть времени уходит на бэкенды, ботов и автоматизацию. люблю читаемый код, понятную структуру и наконец-то починку бага, который доводил целую неделю.',
-    'about.p2': 'когда не пишу код — скорее всего слушаю музыку, играю во что-нибудь или придумываю следующую идею.',
+    'about.p1': 'Я Ehorty — python-инженер. В основе — бэкенды, телеграм-боты и скрипты, которые тихо убирают скучные задачи из жизни. Ценю читаемый код, проверенную логику и инструменты, которые работают даже когда первый восторг прошёл.',
+    'about.p2': 'Когда отхожу от клавиатуры — довожу до ума личный проект, слушаю музыку или ловлю хорошую идею, пока она не убежала.',
 
     'about.f1t': 'фокус',
-    'about.f1d': 'бэкенд · боты · автоматизация',
-    'about.f2t': 'щас',
-    'about.f2d': 'изучаю async-питон и прокачиваю свои инструменты',
-    'about.f3t': 'открыт к',
-    'about.f3d': 'проектам, идеям и приятным коллабам',
+    'about.f1d': 'бэкенды · боты · автоматизация',
+    'about.f2t': 'статус',
+    'about.f2d': 'открыт к новым проектам и идеям',
+    'about.f3t': 'девиз',
+    'about.f3d': 'что запускается дважды — скриптуется',
 
-    'nav.now': 'сейчас',
-    'now.text': 'копаю глубже в async-python и довожу до ума свою обвязку для ботов. скоро будет больше публичных проектов.',
+    'nav.now': 'щас',
+    'now.text': 'довожу до ума свою обвязку и копаю глубже в async-python. публичные проекты скоро появятся.',
 
     'nav.projects': 'проекты',
-    'projects.site': 'этот самый сайт — моя личная страница: музыкальный плеер, два языка и светлая/тёмная темы.',
+    'projects.site': 'страница, которую ты сейчас читаешь. собрана вручную: тёмная тема, музыка, два языка.',
+    'projects.more': 'скоро будет больше публичных проектов — следи за обновлениями.',
 
     'nav.stack': 'стек',
     'stack.backend': 'бэкенд',
@@ -86,16 +86,14 @@ const i18n = {
     'stack.database': 'базы данных',
     'stack.tools': 'инструменты',
     'stack.other': 'прочее',
-    'stack.fun': 'ещё',
-    'stack.fun_desc': 'пет-проекты и эксперименты',
 
     'nav.contact': 'контакты',
-    'contact.lead': 'хочешь что-то обсудить, поделиться идеей или просто поздороваться? напиши — всегда рад поболтать.',
+    'contact.lead': 'есть проект, идея или просто хочется поздороваться? я открыт для сообщений.',
 
-    'footer.text': '© 2026 ehorty · from ehorty import website',
+    'footer.text': '© 2026 ehorty · собрано на python и терпении',
 
-    'gate.title': 'нажми где угодно, чтобы продолжить',
-    'gate.note': 'на этом сайте играет музыка. громкость можно менять в плеере слева снизу.'
+    'gate.title': 'нажми, чтобы войти',
+    'gate.note': 'на сайте играет музыка — громкость можно убрать в плеере слева снизу.'
   }
 };
 
@@ -163,7 +161,6 @@ burger.addEventListener('click', () => {
   burger.setAttribute('aria-expanded', String(open));
 });
 
-// close the mobile menu after clicking a link
 navLinks.querySelectorAll('a').forEach((a) =>
   a.addEventListener('click', () => {
     navLinks.classList.remove('open');
@@ -173,43 +170,38 @@ navLinks.querySelectorAll('a').forEach((a) =>
 );
 
 // ===== Live status from status.js =====
-if (window.MY_STATUS && window.MY_STATUS.status) {
+if (window.MY_STATUS) {
   const statusEl = document.getElementById('myStatus');
-  if (statusEl) statusEl.textContent = window.MY_STATUS.status;
+  if (statusEl && window.MY_STATUS.status) statusEl.textContent = window.MY_STATUS.status;
 
-  const nowProj = document.getElementById('nowProj');
-  if (window.MY_STATUS.project && nowProj) nowProj.textContent = window.MY_STATUS.project;
-
-  if (window.MY_STATUS.now && window.MY_STATUS.now.en && window.MY_STATUS.now.ru) {
-    const setNow = () => {
+  if (window.MY_STATUS.title) {
+    const setTitle = () => {
       const key = document.documentElement.lang;
-      const el = document.querySelector('.now [data-i18n="now.text"]');
-      if (el) el.textContent = window.MY_STATUS.now[key] || window.MY_STATUS.now.en;
-      document.title = key === 'ru' ? 'ehorty · ' + (window.MY_STATUS.title.ru || 'python developer') : 'ehorty · ' + (window.MY_STATUS.title.en || 'python developer');
+      document.title = (window.MY_STATUS.title[key] || window.MY_STATUS.title.en) + ' — ehorty';
     };
-    setNow();
-    langToggle.addEventListener('click', () => setTimeout(setNow, 0));
+    setTitle();
+    langToggle.addEventListener('click', () => setTimeout(setTitle, 0));
   }
 }
 
-// ===== Pep-8 Mode (type "python") =====
-const PYP_WORD = 'python';
-let pypBuffer = '';
+// ===== sudo mode (type "sudo") =====
+const SUDO_WORD = 'sudo';
+let sudoBuffer = '';
 
-function toggleGreen() {
-  document.body.classList.toggle('green');
+function toggleRoot() {
+  document.body.classList.toggle('root');
 }
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && document.body.classList.contains('green')) {
-    document.body.classList.remove('green');
+  if (e.key === 'Escape' && document.body.classList.contains('root')) {
+    document.body.classList.remove('root');
     return;
   }
   if (e.key.length !== 1) return;
-  pypBuffer = (pypBuffer + e.key.toLowerCase()).slice(-PYP_WORD.length);
-  if (pypBuffer === PYP_WORD) {
-    pypBuffer = '';
-    toggleGreen();
+  sudoBuffer = (sudoBuffer + e.key.toLowerCase()).slice(-SUDO_WORD.length);
+  if (sudoBuffer === SUDO_WORD) {
+    sudoBuffer = '';
+    toggleRoot();
   }
 });
 
@@ -259,7 +251,6 @@ function initWebAudio() {
     source.connect(gainNode);
     gainNode.connect(audioCtx.destination);
 
-    // iOS ignores this value when Web Audio is used.
     audio.volume = 1;
   } catch (e) {
     console.warn('Web Audio initialization failed:', e);
@@ -271,17 +262,10 @@ function initWebAudio() {
 }
 
 function setVolume(value) {
-  const volume = Math.min(
-    1,
-    Math.max(0, Number(value))
-  );
+  const volume = Math.min(1, Math.max(0, Number(value)));
 
   if (gainNode) {
-    gainNode.gain.setTargetAtTime(
-      volume,
-      audioCtx.currentTime,
-      0.01
-    );
+    gainNode.gain.setTargetAtTime(volume, audioCtx.currentTime, 0.01);
   } else {
     audio.volume = volume;
   }
@@ -342,8 +326,7 @@ audio.addEventListener('timeupdate', () => {
 
 plSeek.addEventListener('input', () => {
   if (audio.duration) {
-    audio.currentTime =
-      (plSeek.value / 100) * audio.duration;
+    audio.currentTime = (plSeek.value / 100) * audio.duration;
   }
 });
 
