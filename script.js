@@ -105,7 +105,8 @@
     document.documentElement.lang = lang;
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
-      const val = i18n[lang][key] || key;
+      const val = i18n[lang][key];
+      if (val === undefined) return;
       if (key === 'footer.hint') {
         el.textContent = val + ' ';
         const code = document.createElement('code');
