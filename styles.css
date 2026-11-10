@@ -415,8 +415,6 @@ a.drop:hover .drop-top .ic { transform: translate(3px, -3px); color: var(--accen
 .drop h3 { font-family: var(--disp); font-size: 1.35rem; font-weight: 700; }
 .drop > p { color: var(--muted); font-weight: 500; }
 .drop-tags { font-size: .74rem; color: var(--muted); }
-.drop-tags.accent { color: var(--accent); }
-.coming { font-size: .68rem; color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: .25rem .8rem; }
 
 /* ===== Link ===== */
 .link-card {
@@ -616,7 +614,6 @@ input[type="range"]::-moz-range-thumb {
   .stack-grid { grid-template-columns: repeat(2, 1fr); }
   .drop-grid { grid-template-columns: repeat(2, 1fr); }
   .hero { padding-top: clamp(2.8rem, 8vw, 5rem); }
-  .drops .drop:nth-child(3) { grid-column: span 2; }
 }
 
 /* ===== Mobile (≤720px) ===== */
