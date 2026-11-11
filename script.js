@@ -12,7 +12,7 @@
       'nav.stack': 'stack',
       'nav.drops': 'drops',
       'nav.link': 'link',
-      'hero.eyebrow': 'python engineer · open to the game',
+      'hero.eyebrow': 'Full-Stack Engineer · open to the game',
       'hero.lead': 'Backends, bots & little automations — handled with serious drip. Black & white base, one loud accent. That\u2019s the whole palette.',
       'hero.drops': 'view the drops',
       'hero.talk': 'link up',
